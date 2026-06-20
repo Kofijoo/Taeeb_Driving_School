@@ -1110,6 +1110,27 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 }
 
 /* ============================================================
+   HERO VIDEO
+   ============================================================ */
+.hero--video { position: relative; }
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero__video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,20,60,.72) 0%, rgba(11,20,60,.48) 100%);
+  z-index: 1;
+}
+.hero--video .hero__bg-shapes,
+.hero--video .container { position: relative; z-index: 2; }
+
+/* ============================================================
    LOGO IMAGE
    ============================================================ */
 .logo__img { display: block; height: 48px; width: auto; }
