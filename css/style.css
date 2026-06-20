@@ -118,7 +118,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .btn--full { width: 100%; }
 
 /* ── Section ── */
-.section { padding-block: 96px; }
+.section { padding-block: 64px; }
 
 .section__header {
   text-align: center;
@@ -1128,6 +1128,12 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   object-fit: cover;
   z-index: 0;
 }
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.38);
+  z-index: 1;
+}
 .hero__center {
   position: relative;
   z-index: 2;
@@ -1238,23 +1244,40 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .tabs-section { background: var(--gray-50); }
 .tabs-section__inner {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   align-items: center;
 }
-.tabs-section__content { display: flex; flex-direction: column; gap: 20px; }
-.tabs-section__text { font-size: 17px; color: var(--gray-600); line-height: 1.7; max-width: 560px; }
-.tabs-section__actions { display: flex; gap: 14px; flex-wrap: wrap; }
-.tabs-phone {
-  width: 120px;
-  height: 120px;
-  background: var(--white);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.tabs-section__content { display: flex; flex-direction: column; gap: 16px; }
+.tabs-section__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--gray-900);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
+.tabs-section__sub {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+.tabs-section__text { font-size: 15px; color: var(--gray-600); line-height: 1.7; }
+.tabs-section__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.tabs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  transition: opacity var(--transition), transform var(--transition);
+  text-decoration: none;
+}
+.tabs-btn:hover { opacity: .88; transform: translateY(-1px); }
+.tabs-btn--dark { background: var(--gray-900); color: var(--white); }
+.tabs-section__visual { display: flex; justify-content: center; align-items: center; }
+.tabs-section__img { max-width: 100%; height: auto; border-radius: var(--radius-lg); }
 
 /* ============================================================
    REVIEWS
@@ -1431,7 +1454,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   .reviews__grid  { grid-template-columns: 1fr; }
   .links-section__grid { grid-template-columns: 1fr; }
   .tabs-section__inner { grid-template-columns: 1fr; }
-  .tabs-phone { display: none; }
+  .tabs-section__visual { order: -1; }
 }
 @media (max-width: 767px) {
   .courses__grid  { max-width: 100%; }
