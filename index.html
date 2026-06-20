@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Let's Learn Trafikkskole – Lillestrøm</title>
-  <meta name="description" content="Moderne trafikkskole i Lillestrøm med Tesla Model 3, sertifiserte trafikklærere og fleksibel timeplan. Book din første kjøretime i dag.">
+  <meta name="description" content="Trafikkskole i Lillestrøm med Tesla Model Y. Undervisning på norsk, arabisk og engelsk. Book kjøretime enkelt via TABS.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -52,6 +52,9 @@
         <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
       </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+      </symbol>
       <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
       </symbol>
@@ -79,16 +82,31 @@
       <symbol id="icon-zap" viewBox="0 0 24 24">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor"/>
       </symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+        <polyline points="15 3 21 3 21 9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </symbol>
+      <symbol id="icon-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+        <line x1="12" y1="18" x2="12.01" y2="18"/>
+      </symbol>
     </defs>
   </svg>
 
   <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
-    <p class="cookie-banner__title" id="cookieTitle" data-i18n="cookie_title">Vi bruker informasjonskapsler</p>
-    <p class="cookie-banner__desc" id="cookieDesc" data-i18n-html="cookie_desc">Vi bruker informasjonskapsler for å forbedre din brukeropplevelse. Les vår <a href="#personvern">personvernerklæring</a>.</p>
+    <p class="cookie-banner__title" id="cookieTitle">Vi bruker informasjonskapsler</p>
+    <p class="cookie-banner__desc" id="cookieDesc">Vi bruker informasjonskapsler for å forbedre din brukeropplevelse. Les vår <a href="#personvern">personvernerklæring</a>.</p>
     <div class="cookie-banner__actions">
-      <button class="btn btn--outline-white btn--sm" id="cookieDecline" data-i18n="cookie_decline">Avslå</button>
-      <button class="btn btn--primary btn--sm" id="cookieAccept" data-i18n="cookie_accept">Godta alle</button>
+      <button class="btn btn--outline-white btn--sm" id="cookieDecline">Avslå</button>
+      <button class="btn btn--primary btn--sm" id="cookieAccept">Godta alle</button>
     </div>
   </div>
 
@@ -96,9 +114,9 @@
   <div class="topbar">
     <div class="container topbar__inner">
       <div class="topbar__left">
-        <a href="tel:+4712345678" class="topbar__link">
+        <a href="tel:+4790805256" class="topbar__link">
           <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-phone"/></svg>
-          +47 XX XXX XXXX
+          +47 908 05 256
         </a>
         <span class="topbar__divider" aria-hidden="true"></span>
         <a href="mailto:post@letslearntrafikkskole.no" class="topbar__link">
@@ -108,13 +126,17 @@
         <span class="topbar__divider topbar__divider--hide" aria-hidden="true"></span>
         <span class="topbar__info">
           <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-clock"/></svg>
-          <span data-i18n="topbar_hours">Man–Fre 08:00–20:00 · Lør 09:00–16:00</span>
+          Man–Fre 08:00–20:00 · Lør 09:00–16:00
         </span>
       </div>
       <div class="topbar__right">
         <a href="https://www.instagram.com/lets_learn_trafikkskole_as/?hl=en" target="_blank" rel="noopener noreferrer" class="topbar__social" aria-label="Instagram">
           <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-instagram"/></svg>
           Instagram
+        </a>
+        <a href="https://www.facebook.com/LetsLearntrafikkskole" target="_blank" rel="noopener noreferrer" class="topbar__social" aria-label="Facebook">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-facebook"/></svg>
+          Facebook
         </a>
       </div>
     </div>
@@ -125,37 +147,21 @@
     <div class="container site-header__inner">
 
       <a href="#hjem" class="logo" aria-label="Let's Learn Trafikkskole – tilbake til toppen">
-        <svg class="logo__svg" width="172" height="52" viewBox="0 0 172 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <rect x="0" y="0" width="22" height="22" rx="4" fill="#EF4444"/>
-          <rect x="25" y="0" width="22" height="22" rx="4" fill="#22C55E"/>
-          <rect x="0" y="25" width="22" height="22" rx="4" fill="#3B82F6"/>
-          <rect x="25" y="25" width="22" height="22" rx="4" fill="#F59E0B"/>
-          <circle cx="11" cy="11" r="5" fill="rgba(255,255,255,0.88)"/>
-          <circle cx="36" cy="11" r="5" fill="rgba(255,255,255,0.88)"/>
-          <circle cx="11" cy="36" r="5" fill="rgba(255,255,255,0.88)"/>
-          <circle cx="36" cy="36" r="5" fill="rgba(255,255,255,0.88)"/>
-          <text x="56" y="23" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="800" font-size="17" fill="#1B2B5E">Let's Learn</text>
-          <text x="56" y="41" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="500" font-size="13" fill="#475569">Trafikkskole</text>
-        </svg>
+        <img src="images/lets_learn_logo_1.png" alt="Let's Learn Trafikkskole" class="logo__img" height="48">
       </a>
 
       <nav class="main-nav" id="mainNav" aria-label="Hovedmeny">
         <ul class="main-nav__list" role="list">
-          <li><a href="#tjenester" class="main-nav__link" data-i18n="nav_services">Tjenester</a></li>
-          <li><a href="#kurs"      class="main-nav__link" data-i18n="nav_courses">Kurs</a></li>
-          <li><a href="#priser"    class="main-nav__link" data-i18n="nav_prices">Priser</a></li>
-          <li><a href="#faq"       class="main-nav__link" data-i18n="nav_faq">FAQ</a></li>
-          <li><a href="#kontakt"   class="main-nav__link" data-i18n="nav_contact">Kontakt</a></li>
+          <li><a href="#hjem"    class="main-nav__link">Hjem</a></li>
+          <li><a href="#kurs"    class="main-nav__link">Kurs</a></li>
+          <li><a href="#priser"  class="main-nav__link">Priser</a></li>
+          <li><a href="#lenker"  class="main-nav__link">Lenker</a></li>
+          <li><a href="#kontakt" class="main-nav__link">Kontakt</a></li>
         </ul>
       </nav>
 
       <div class="site-header__actions">
-        <div class="lang-toggle" role="group" aria-label="Language / Språk">
-          <button class="lang-toggle__btn lang-toggle__btn--active" id="btn-no" title="Norsk">NO</button>
-          <span class="lang-toggle__sep" aria-hidden="true">|</span>
-          <button class="lang-toggle__btn" id="btn-en" title="English">EN</button>
-        </div>
-        <a href="#kontakt" class="btn btn--primary btn--sm" data-i18n="nav_cta">Bli elev</a>
+        <a href="#kontakt" class="btn btn--primary btn--sm">Bestill kjøretime</a>
         <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false" aria-controls="mainNav">
           <span class="hamburger__line"></span>
           <span class="hamburger__line"></span>
@@ -179,50 +185,46 @@
         <div class="hero__content">
           <div class="hero__badge">
             <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-map-pin"/></svg>
-            <span data-i18n="hero_badge">Trafikkskole i Lillestrøm</span>
+            <span>Trafikkskole i Lillestrøm</span>
           </div>
-          <h1 class="hero__title" data-i18n-html="hero_title">Din vei til lappen<br><span class="hero__title--accent">starter her</span></h1>
-          <p class="hero__text" data-i18n="hero_text">Vi tilbyr kjøretimer i Tesla Model 3 med sertifiserte trafikklærere i Lillestrøm og omegn. Fleksibel timeplan tilpasset din hverdag – morgen, kveld og helg.</p>
+          <h1 class="hero__title">Veien til førerkortet<br><span class="hero__title--accent">starter her</span></h1>
+          <p class="hero__text">Vi tilbyr kjøretimer i Tesla Model Y i Lillestrøm og omegn. Fleksibel timeplan tilpasset din hverdag – morgen, kveld og helg. Undervisning på norsk, arabisk og engelsk.</p>
           <div class="hero__ctas">
-            <a href="#kontakt" class="btn btn--primary btn--lg" data-i18n="hero_cta_primary">Bli elev</a>
-            <a href="#priser"  class="btn btn--ghost btn--lg"   data-i18n="hero_cta_secondary">Se priser</a>
+            <a href="#kontakt" class="btn btn--primary btn--lg">Bestill kjøretime</a>
+            <a href="#priser"  class="btn btn--ghost btn--lg">Se priser</a>
           </div>
           <div class="hero__stats" aria-label="Nøkkeltall">
             <div class="hero__stat">
               <span class="hero__stat-num">200+</span>
-              <span class="hero__stat-label" data-i18n="hero_stat_students">Fornøyde elever</span>
+              <span class="hero__stat-label">Fornøyde elever</span>
             </div>
             <div class="hero__stat-divider" aria-hidden="true"></div>
             <div class="hero__stat">
               <span class="hero__stat-num">4.8</span>
-              <span class="hero__stat-label" data-i18n="hero_stat_rating">Snittkarakter</span>
+              <span class="hero__stat-label">Snittkarakter</span>
             </div>
             <div class="hero__stat-divider" aria-hidden="true"></div>
             <div class="hero__stat">
               <span class="hero__stat-num">95%</span>
-              <span class="hero__stat-label" data-i18n="hero_stat_pass">Beståttprosent</span>
+              <span class="hero__stat-label">Beståttprosent</span>
             </div>
           </div>
         </div>
 
         <div class="hero__visual" aria-hidden="true">
           <div class="hero__card">
-            <div class="hero__card-top">
-              <svg class="icon" style="color:#22C55E"><use href="#icon-shield"/></svg>
-              <span data-i18n="hero_card_certified">Sertifisert av Statens vegvesen</span>
-            </div>
             <div class="hero__card-blocks">
               <div class="hero__card-block hero__card-block--green">
-                <span class="hero__card-block-num">Tesla Model 3</span>
-                <span class="hero__card-block-text" data-i18n="hero_card_tesla_sub">Automatgir · Miljøvennlig · Trygg</span>
+                <span class="hero__card-block-num">Tesla Model Y</span>
+                <span class="hero__card-block-text">Automatgir · Miljøvennlig · Trygg</span>
               </div>
               <div class="hero__card-block hero__card-block--blue">
-                <span class="hero__card-block-num" data-i18n="hero_card_multilingual">Flerspråklig</span>
-                <span class="hero__card-block-text" data-i18n="hero_card_multi_sub">Norsk · Arabisk · Engelsk</span>
+                <span class="hero__card-block-num">Flerspråklig</span>
+                <span class="hero__card-block-text">Norsk · Arabisk · Engelsk</span>
               </div>
               <div class="hero__card-block hero__card-block--amber">
-                <span class="hero__card-block-num" data-i18n="hero_card_flexible">Fleksibelt</span>
-                <span class="hero__card-block-text" data-i18n="hero_card_flex_sub">Book time 07:00–20:00 alle dager</span>
+                <span class="hero__card-block-num">Fleksibelt</span>
+                <span class="hero__card-block-text">Book time 07:00–20:00 alle dager</span>
               </div>
             </div>
           </div>
@@ -239,8 +241,8 @@
               <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
             </div>
             <div class="qa-card__body">
-              <strong class="qa-card__title" data-i18n="qa_book_title">Bestill kjøretime</strong>
-              <span  class="qa-card__desc"  data-i18n="qa_book_desc">Velg tid og instruktør</span>
+              <strong class="qa-card__title">Bestill kjøretime</strong>
+              <span class="qa-card__desc">Velg tid som passer deg</span>
             </div>
             <svg class="icon qa-card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
           </a>
@@ -249,8 +251,8 @@
               <svg class="icon" aria-hidden="true"><use href="#icon-credit-card"/></svg>
             </div>
             <div class="qa-card__body">
-              <strong class="qa-card__title" data-i18n="qa_prices_title">Priser og pakker</strong>
-              <span  class="qa-card__desc"  data-i18n="qa_prices_desc">Se hva som passer deg</span>
+              <strong class="qa-card__title">Priser og pakker</strong>
+              <span class="qa-card__desc">Se hva som passer deg</span>
             </div>
             <svg class="icon qa-card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
           </a>
@@ -259,8 +261,8 @@
               <svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg>
             </div>
             <div class="qa-card__body">
-              <strong class="qa-card__title" data-i18n="qa_enroll_title">Bli elev</strong>
-              <span  class="qa-card__desc"  data-i18n="qa_enroll_desc">Start reisen mot lappen</span>
+              <strong class="qa-card__title">Bli elev</strong>
+              <span class="qa-card__desc">Start reisen mot lappen</span>
             </div>
             <svg class="icon qa-card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
           </a>
@@ -268,124 +270,49 @@
       </div>
     </div>
 
-    <!-- SERVICES -->
-    <section class="section services" id="tjenester" aria-labelledby="services-heading">
-      <div class="container">
-        <div class="section__header">
-          <span class="section__tag"   data-i18n="services_tag">Våre tjenester</span>
-          <h2  class="section__title"  id="services-heading" data-i18n="services_title">Alt du trenger for å få lappen</h2>
-          <p   class="section__subtitle" data-i18n="services_subtitle">Vi tilbyr alle nødvendige kurs og timer for å gjennomføre føreropplæringen trygt og effektivt.</p>
-        </div>
-        <div class="services__grid">
-
-          <article class="service-card reveal">
-            <div class="service-card__icon service-card__icon--navy">
-              <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-shield"/></svg>
-            </div>
-            <h3 class="service-card__title" data-i18n="s1_title">Trafikalt grunnkurs</h3>
-            <p  class="service-card__text"  data-i18n="s1_text">Obligatorisk 7,5-timers kurs som gir deg grunnleggende forståelse for trafikksikkerhet, kjøreteknikk og ansvarsbevissthet. Kursbevis utstedt etter fullføring.</p>
-            <ul class="service-card__list" role="list">
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s1_f1">Teorigjennomgang og gruppeøvelser</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s1_f2">Praktiske kjøreøvelser på bane</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s1_f3">Grunnleggende førstehjelp</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s1_f4">Kursbevis samme dag</span></li>
-            </ul>
-            <a href="#kontakt" class="service-card__link">
-              <span data-i18n="s1_link">Meld deg på</span>
-              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-            </a>
-          </article>
-
-          <article class="service-card service-card--featured reveal">
-            <div class="service-card__badge" data-i18n="pkg2_badge">Populær</div>
-            <div class="service-card__icon service-card__icon--green">
-              <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-zap"/></svg>
-            </div>
-            <h3 class="service-card__title" data-i18n="s2_title">Kjøretimer</h3>
-            <p  class="service-card__text"  data-i18n="s2_text">Individuelle kjøretimer i Tesla Model 3 med sertifisert trafikklærer. Undervisningen tilpasses ditt nivå og din læringstakt fra første stund.</p>
-            <ul class="service-card__list" role="list">
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s2_f1">Tesla Model 3 med automatgir</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s2_f2">Sertifiserte og erfarne lærere</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s2_f3">Morgen, kveld og helg</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s2_f4">Tilbakemelding etter hver time</span></li>
-            </ul>
-            <a href="#kontakt" class="service-card__link">
-              <span data-i18n="s2_link">Bestill time</span>
-              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-            </a>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-card__icon service-card__icon--navy">
-              <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-star"/></svg>
-            </div>
-            <h3 class="service-card__title" data-i18n="s3_title">Oppkjøring</h3>
-            <p  class="service-card__text"  data-i18n="s3_text">Grundig forberedelse til den praktiske prøven hos Statens vegvesen. Vi gjennomgår ruter, øver på prøvesituasjoner og gir deg selvtillit til eksamensdagen.</p>
-            <ul class="service-card__list" role="list">
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s3_f1">Simulering av prøvesituasjoner</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s3_f2">Gjennomgang av vanlige feil</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s3_f3">Transport til prøvestedet</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg> <span data-i18n="s3_f4">Ny time ved ikke bestått</span></li>
-            </ul>
-            <a href="#kontakt" class="service-card__link">
-              <span data-i18n="s3_link">Les mer</span>
-              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- COURSES / STEPS -->
+    <!-- KURS -->
     <section class="section courses" id="kurs" aria-labelledby="courses-heading">
       <div class="container">
         <div class="section__header">
-          <span class="section__tag"    data-i18n="courses_tag">Veien til lappen</span>
-          <h2  class="section__title"   id="courses-heading" data-i18n="courses_title">8 trinn til førerkortet</h2>
-          <p   class="section__subtitle" data-i18n="courses_subtitle">Norsk føreropplæring følger en strukturert progresjon godkjent av Statens vegvesen. Vi guider deg gjennom hvert steg.</p>
+          <span class="section__tag">Kurs</span>
+          <h2 class="section__title" id="courses-heading">Kursene vi tilbyr</h2>
+          <p class="section__subtitle">Alt du trenger for å fullføre føreropplæringen – vi guider deg gjennom hvert steg.</p>
         </div>
-        <div class="steps__grid">
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">1</div>
-            <h3 class="step__title" data-i18n="step1_title">Registrer deg</h3>
-            <p  class="step__text"  data-i18n="step1_text">Ta kontakt og registrer deg som elev. Vi kartlegger nivået ditt og lager en realistisk plan.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">2</div>
-            <h3 class="step__title" data-i18n="step2_title">Trafikalt grunnkurs</h3>
-            <p  class="step__text"  data-i18n="step2_text">Obligatorisk 7,5-timers kurs for alle under 25 år. Dekker trafikksikkerhet og kjøreadferd.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">3</div>
-            <h3 class="step__title" data-i18n="step3_title">Teoriundervisning</h3>
-            <p  class="step__text"  data-i18n="step3_text">Gjennomgang av trafikkregler, skilt og situasjoner du møter i teorieksamen.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">4</div>
-            <h3 class="step__title" data-i18n="step4_title">Teorieksamen</h3>
-            <p  class="step__text"  data-i18n="step4_text">Digital eksamen hos Statens vegvesen. Må bestås før du kan starte kjøretimene.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">5</div>
-            <h3 class="step__title" data-i18n="step5_title">Grunnleggende kjøring</h3>
-            <p  class="step__text"  data-i18n="step5_text">Trinn 2: Kontroll av kjøretøy, grunnleggende teknikk og sikker ferdsel på rolige veier.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">6</div>
-            <h3 class="step__title" data-i18n="step6_title">Trafikalt kjøring</h3>
-            <p  class="step__text"  data-i18n="step6_text">Trinn 3: Kjøring i variert trafikk – rundkjøring, motorvei, kryss og utfordrende situasjoner.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">7</div>
-            <h3 class="step__title" data-i18n="step7_title">Sikkerhetskurs</h3>
-            <p  class="step__text"  data-i18n="step7_text">Obligatorisk kurs (Trinn 4) på bane og vei. Gjennomføres i samarbeid med godkjent kurssenter.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step__num" aria-hidden="true">8</div>
-            <h3 class="step__title" data-i18n="step8_title">Praktisk prøve</h3>
-            <p  class="step__text"  data-i18n="step8_text">Oppkjøring hos Statens vegvesen. Med god forberedelse er du klar – lykke til!</p>
-          </div>
+        <div class="courses__grid">
+
+          <article class="course-card reveal">
+            <div class="course-card__img">
+              <img src="images/skole_sign.png" alt="Tesla Model Y med Let's Learn Trafikkskole skilt">
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Trafikalt grunnkurs</h3>
+              <p class="course-card__text">Obligatorisk 7,5-timers kurs for alle under 25 år. Dekker trafikksikkerhet, kjøreadferd og grunnleggende teknikk. Kursbevis utstedt samme dag.</p>
+              <a href="#kontakt" class="btn btn--outline">Meld deg på</a>
+            </div>
+          </article>
+
+          <article class="course-card reveal">
+            <div class="course-card__img course-card__img--firstaid">
+              <svg class="icon icon--lg" aria-hidden="true" style="color:#fff;width:56px;height:56px;opacity:.9"><use href="#icon-heart"/></svg>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Førstehjelpskurs</h3>
+              <p class="course-card__text">Livreddende ferdigheter som alle sjåfører bør ha. Kurset er praktisk og tilgjengelig for alle elever som en del av opplæringen.</p>
+              <a href="#kontakt" class="btn btn--outline">Meld deg på</a>
+            </div>
+          </article>
+
+          <article class="course-card reveal">
+            <div class="course-card__img course-card__img--night">
+              <svg class="icon icon--lg" aria-hidden="true" style="color:#fff;width:56px;height:56px;opacity:.9"><use href="#icon-moon"/></svg>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Mørkekjøring</h3>
+              <p class="course-card__text">Kjøring under vanskelige lysforhold er en viktig del av føreropplæringen. Vi øver på reelle situasjoner i mørke slik at du er trygg hele døgnet.</p>
+              <a href="#kontakt" class="btn btn--outline">Meld deg på</a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -394,40 +321,40 @@
     <section class="section why-us" aria-labelledby="why-heading">
       <div class="container">
         <div class="section__header section__header--light">
-          <span class="section__tag section__tag--light"           data-i18n="why_tag">Hvorfor velge oss</span>
-          <h2  class="section__title section__title--light"        id="why-heading" data-i18n="why_title">Vi setter eleven i sentrum</h2>
-          <p   class="section__subtitle section__subtitle--light"  data-i18n="why_subtitle">Vi kombinerer moderne teknologi med personlig oppfølging for å gi deg den beste læreopplevelsen.</p>
+          <span class="section__tag section__tag--light">Hvorfor velge oss</span>
+          <h2 class="section__title section__title--light" id="why-heading">Vi setter eleven i sentrum</h2>
+          <p class="section__subtitle section__subtitle--light">Moderne bil, personlig oppfølging og fleksibel timeplan – vi gjør det enkelt for deg å lykkes.</p>
         </div>
         <div class="why-us__grid">
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-zap"/></svg></div>
-            <h3 class="feature-card__title" data-i18n="f1_title">Tesla Model 3</h3>
-            <p  class="feature-card__text"  data-i18n="f1_text">Kjør i en moderne elbil med automatgir, avanserte sikkerhetssystemer og en trygg kjøreopplevelse.</p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-shield"/></svg></div>
-            <h3 class="feature-card__title" data-i18n="f2_title">Sertifiserte lærere</h3>
-            <p  class="feature-card__text"  data-i18n="f2_text">Alle våre trafikklærere er godkjente av Statens vegvesen og har lang erfaring med elever på alle nivåer.</p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-calendar"/></svg></div>
-            <h3 class="feature-card__title" data-i18n="f3_title">Fleksibel timeplan</h3>
-            <p  class="feature-card__text"  data-i18n="f3_text">Timer fra tidlig morgen til sen kveld, og i helgene. Din hverdag bestemmer, ikke vår åpningstid.</p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-globe"/></svg></div>
-            <h3 class="feature-card__title" data-i18n="f4_title">Flerspråklig</h3>
-            <p  class="feature-card__text"  data-i18n="f4_text">Vi tilbyr undervisning på norsk, arabisk og engelsk – kommunikasjon på ditt foretrukne språk.</p>
+            <h3 class="feature-card__title">Tesla Model Y</h3>
+            <p class="feature-card__text">Kjør i en moderne elbil med automatgir, avanserte sikkerhetssystemer og en komfortabel kjøreopplevelse.</p>
           </div>
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-users"/></svg></div>
-            <h3 class="feature-card__title" data-i18n="f5_title">Personlig oppfølging</h3>
-            <p  class="feature-card__text"  data-i18n="f5_text">Vi følger deg tett gjennom hele prosessen – fra første time til du holder førerkortet i hånden.</p>
+            <h3 class="feature-card__title">Erfaren instruktør</h3>
+            <p class="feature-card__text">Mange år erfaring og hundrevis av elever som har bestått føreropplæringen. Din trygghet og mestring er alt som teller.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-calendar"/></svg></div>
+            <h3 class="feature-card__title">Fleksibel timeplan</h3>
+            <p class="feature-card__text">Timer fra tidlig morgen til sen kveld, og i helgene. Din hverdag bestemmer, ikke vår åpningstid.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-globe"/></svg></div>
+            <h3 class="feature-card__title">Flerspråklig</h3>
+            <p class="feature-card__text">Vi tilbyr undervisning på norsk, arabisk og engelsk – kommunikasjon på ditt foretrukne språk.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-shield"/></svg></div>
+            <h3 class="feature-card__title">Personlig oppfølging</h3>
+            <p class="feature-card__text">Vi følger deg tett gjennom hele prosessen – fra første time til du holder førerkortet i hånden.</p>
           </div>
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-credit-card"/></svg></div>
-            <h3 class="feature-card__title" data-i18n="f6_title">Delbetaling</h3>
-            <p  class="feature-card__text"  data-i18n="f6_text">Vi tilbyr fleksible betalingsløsninger som gjør det enklere å komme i gang uten å betale alt på én gang.</p>
+            <h3 class="feature-card__title">Delbetaling</h3>
+            <p class="feature-card__text">Vi tilbyr fleksible betalingsløsninger som gjør det enklere å komme i gang uten å betale alt på én gang.</p>
           </div>
         </div>
       </div>
@@ -437,220 +364,300 @@
     <section class="section pricing" id="priser" aria-labelledby="pricing-heading">
       <div class="container">
         <div class="section__header">
-          <span class="section__tag"    data-i18n="pricing_tag">Priser</span>
-          <h2  class="section__title"   id="pricing-heading" data-i18n="pricing_title">Velg pakken som passer deg</h2>
-          <p   class="section__subtitle" data-i18n="pricing_subtitle">Alle priser er veiledende og inkl. mva. Kontakt oss for et personlig tilbud.</p>
+          <span class="section__tag">Priser</span>
+          <h2 class="section__title" id="pricing-heading">Velg pakken som passer deg</h2>
+          <p class="section__subtitle">Alle priser er veiledende og inkl. mva. Kontakt oss for et personlig tilbud.</p>
         </div>
 
         <div class="pricing__grid">
 
           <div class="pricing-card reveal">
             <div class="pricing-card__header">
-              <span class="pricing-card__name" data-i18n="pkg1_name">Grunnkurs</span>
+              <span class="pricing-card__name">Grunnkurs</span>
               <div class="pricing-card__price">
                 <span class="pricing-card__amount">fra 3&nbsp;200</span>
                 <span class="pricing-card__currency">kr</span>
               </div>
-              <p class="pricing-card__desc" data-i18n="pkg1_desc">Perfekt som første steg i opplæringen.</p>
+              <p class="pricing-card__desc">Perfekt som første steg i opplæringen.</p>
             </div>
             <ul class="pricing-card__features" role="list">
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg1_f1">Trafikalt grunnkurs (7,5 t)</span>
+                <span>Trafikalt grunnkurs (7,5 t)</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg1_f2">Kursbevis</span>
+                <span>Kursbevis</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg1_f3">Teorimateriale inkludert</span>
+                <span>Teorimateriale inkludert</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--no">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-x"/></svg>
-                <span data-i18n="pkg1_f4">Kjøretimer</span>
+                <span>Kjøretimer</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--no">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-x"/></svg>
-                <span data-i18n="pkg1_f5">Sikkerhetskurs</span>
+                <span>Sikkerhetskurs</span>
               </li>
             </ul>
-            <a href="#kontakt" class="btn btn--outline btn--full" data-i18n="pkg_cta">Kom i gang</a>
+            <a href="#kontakt" class="btn btn--outline btn--full">Kom i gang</a>
           </div>
 
           <div class="pricing-card pricing-card--featured reveal">
-            <div class="pricing-card__badge" data-i18n="pkg2_badge">Mest populær</div>
+            <div class="pricing-card__badge">Mest populær</div>
             <div class="pricing-card__header">
-              <span class="pricing-card__name" data-i18n="pkg2_name">Standard</span>
+              <span class="pricing-card__name">Standard</span>
               <div class="pricing-card__price">
                 <span class="pricing-card__amount">fra 19&nbsp;500</span>
                 <span class="pricing-card__currency">kr</span>
               </div>
-              <p class="pricing-card__desc" data-i18n="pkg2_desc">Dekker det de fleste elever trenger.</p>
+              <p class="pricing-card__desc">Dekker det de fleste elever trenger.</p>
             </div>
             <ul class="pricing-card__features" role="list">
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg2_f1">Trafikalt grunnkurs (7,5 t)</span>
+                <span>Trafikalt grunnkurs (7,5 t)</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg2_f2">10 kjøretimer (45 min)</span>
+                <span>10 kjøretimer (45 min)</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg2_f3">Teoriundervisning</span>
+                <span>Teoriundervisning</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg2_f4">Sikkerhetskurs</span>
+                <span>Sikkerhetskurs</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--no">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-x"/></svg>
-                <span data-i18n="pkg2_f5">Oppkjøringsgaranti</span>
+                <span>Oppkjøringsgaranti</span>
               </li>
             </ul>
-            <a href="#kontakt" class="btn btn--primary btn--full" data-i18n="pkg_cta">Kom i gang</a>
+            <a href="#kontakt" class="btn btn--primary btn--full">Kom i gang</a>
           </div>
 
           <div class="pricing-card reveal">
             <div class="pricing-card__header">
-              <span class="pricing-card__name" data-i18n="pkg3_name">Komplett</span>
+              <span class="pricing-card__name">Komplett</span>
               <div class="pricing-card__price">
                 <span class="pricing-card__amount">fra 27&nbsp;500</span>
                 <span class="pricing-card__currency">kr</span>
               </div>
-              <p class="pricing-card__desc" data-i18n="pkg3_desc">Alt inkludert – fra kurs til bestått prøve.</p>
+              <p class="pricing-card__desc">Alt inkludert – fra kurs til bestått prøve.</p>
             </div>
             <ul class="pricing-card__features" role="list">
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg3_f1">Trafikalt grunnkurs (7,5 t)</span>
+                <span>Trafikalt grunnkurs (7,5 t)</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg3_f2">16 kjøretimer (45 min)</span>
+                <span>16 kjøretimer (45 min)</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg3_f3">Teoriundervisning</span>
+                <span>Teoriundervisning</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg3_f4">Sikkerhetskurs</span>
+                <span>Sikkerhetskurs</span>
               </li>
               <li class="pricing-card__feature pricing-card__feature--yes">
                 <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span data-i18n="pkg3_f5">Oppkjøringsforberedelse</span>
+                <span>Oppkjøringsforberedelse</span>
               </li>
             </ul>
-            <a href="#kontakt" class="btn btn--outline btn--full" data-i18n="pkg_cta">Kom i gang</a>
+            <a href="#kontakt" class="btn btn--outline btn--full">Kom i gang</a>
           </div>
 
         </div>
 
         <div class="pricing__individual reveal">
-          <h3 class="pricing__individual-title" data-i18n="rates_title">Enkeltpriser</h3>
+          <h3 class="pricing__individual-title">Enkeltpriser</h3>
           <div class="pricing__individual-grid">
             <div class="individual-row">
-              <span class="individual-row__name"  data-i18n="rate1_name">Trafikalt grunnkurs</span>
+              <span class="individual-row__name">Trafikalt grunnkurs</span>
               <span class="individual-row__price">fra 3&nbsp;200 kr</span>
             </div>
             <div class="individual-row">
-              <span class="individual-row__name"  data-i18n="rate2_name">Kjøretime (45 min)</span>
+              <span class="individual-row__name">Kjøretime (45 min)</span>
               <span class="individual-row__price">fra 895 kr</span>
             </div>
             <div class="individual-row">
-              <span class="individual-row__name"  data-i18n="rate3_name">Dobbeltime (90 min)</span>
+              <span class="individual-row__name">Dobbeltime (90 min)</span>
               <span class="individual-row__price">fra 1&nbsp;690 kr</span>
             </div>
             <div class="individual-row">
-              <span class="individual-row__name"  data-i18n="rate4_name">Sikkerhetskurs</span>
+              <span class="individual-row__name">Sikkerhetskurs</span>
               <span class="individual-row__price">fra 5&nbsp;800 kr</span>
             </div>
             <div class="individual-row">
-              <span class="individual-row__name"  data-i18n="rate5_name">Oppkjøringstime</span>
+              <span class="individual-row__name">Oppkjøringstime</span>
               <span class="individual-row__price">fra 1&nbsp;800 kr</span>
             </div>
             <div class="individual-row">
-              <span class="individual-row__name"  data-i18n="rate6_name">Teoritime (45 min)</span>
+              <span class="individual-row__name">Teoritime (45 min)</span>
               <span class="individual-row__price">fra 450 kr</span>
             </div>
           </div>
-          <p class="pricing__note" data-i18n="pricing_note">Alle priser er veiledende og kan endres. Delbetaling tilgjengelig. Kontakt oss for et tilpasset tilbud.</p>
+          <p class="pricing__note">Alle priser er veiledende og kan endres. Delbetaling tilgjengelig. Kontakt oss for et tilpasset tilbud.</p>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section faq" id="faq" aria-labelledby="faq-heading">
+    <!-- TABS BOOKING -->
+    <section class="section tabs-section" aria-labelledby="tabs-heading">
+      <div class="container">
+        <div class="tabs-section__inner">
+          <div class="tabs-section__content">
+            <span class="section__tag">Booking</span>
+            <h2 class="section__title" id="tabs-heading">Book kjøretime med TABS</h2>
+            <p class="tabs-section__text">TABS er Norges ledende app for booking av kjøretimer. Last ned appen, finn Let's Learn Trafikkskole og velg en tid som passer deg – raskt og enkelt.</p>
+            <div class="tabs-section__actions">
+              <a href="https://tabs.no/start" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
+                Gå til TABS
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=no.limegreen.tabs" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+                <svg class="icon" aria-hidden="true"><use href="#icon-smartphone"/></svg>
+                Last ned på Google Play
+              </a>
+            </div>
+          </div>
+          <div class="tabs-section__visual" aria-hidden="true">
+            <div class="tabs-phone">
+              <svg class="icon" style="width:64px;height:64px;color:var(--navy);opacity:.15" aria-hidden="true"><use href="#icon-smartphone"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section reviews" aria-labelledby="reviews-heading">
       <div class="container">
         <div class="section__header">
-          <span class="section__tag"    data-i18n="faq_tag">Vanlige spørsmål</span>
-          <h2  class="section__title"   id="faq-heading" data-i18n="faq_title">Vi svarer på det du lurer på</h2>
-          <p   class="section__subtitle" data-i18n="faq_subtitle">Finner du ikke svaret her, er du alltid velkommen til å ta kontakt med oss direkte.</p>
+          <span class="section__tag">Elever</span>
+          <h2 class="section__title" id="reviews-heading">Hva sier elevene våre?</h2>
+          <p class="section__subtitle">Vi er stolte av hvert eneste førerkort vi har vært med på å gi ut.</p>
         </div>
-        <div class="faq__list" id="faqList">
+        <div class="reviews__grid">
 
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              <span data-i18n="faq1_q">Hvor lang tid tar det å ta lappen?</span>
-              <svg class="icon faq__chevron" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </button>
-            <div class="faq__answer" hidden>
-              <div class="faq__answer-inner" data-i18n="faq1_a">Det varierer fra person til person. De fleste elever trenger 10–20 kjøretimer, avhengig av erfaring fra øvelseskjøring og generell kjøreerfaring. Vi kartlegger nivået ditt fra første time og gir en realistisk anbefaling. Regn med 6–12 måneder inkludert obligatoriske kurs, teorieksamen og ventetid på oppkjøringstime.</div>
+          <div class="review-card reveal">
+            <div class="review-card__stars" aria-label="5 av 5 stjerner">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <p class="review-card__text">«Veldig tålmodig og flink instruktør. Jeg var veldig nervøs i starten, men følte meg trygg fra første time. Bestod på første forsøk!»</p>
+            <div class="review-card__author">
+              <img src="images/instructors_daughter_gets_liscense.jpg" alt="Elev som bestod" class="review-card__avatar">
+              <div>
+                <strong class="review-card__name">Fornøyd elev</strong>
+                <span class="review-card__meta">Bestod oppkjøringen ✓</span>
+              </div>
             </div>
           </div>
 
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              <span data-i18n="faq2_q">Hva er Trafikalt grunnkurs, og er det obligatorisk?</span>
-              <svg class="icon faq__chevron" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </button>
-            <div class="faq__answer" hidden>
-              <div class="faq__answer-inner" data-i18n="faq2_a">Trafikalt grunnkurs (TG) er et obligatorisk 7,5-timers kurs for alle som ønsker å ta klasse B føreropplæring og er under 25 år. Kurset dekker trafikksikkerhet, holdninger i trafikken, miljøvennlig kjøring og grunnleggende kjøreteknikk. Du får kursbevis etter gjennomføring, og dette er et krav for å starte kjøretimene.</div>
+          <div class="review-card reveal">
+            <div class="review-card__stars" aria-label="5 av 5 stjerner">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <p class="review-card__text">«Flott trafikkskole! Underviste på arabisk som var perfekt for meg. Anbefales sterkt til alle som vil lære å kjøre trygt.»</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar review-card__avatar--initial" style="background:var(--blue)">A</div>
+              <div>
+                <strong class="review-card__name">Ahmed</strong>
+                <span class="review-card__meta">Elev, Lillestrøm</span>
+              </div>
             </div>
           </div>
 
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              <span data-i18n="faq3_q">Kjøres det med automatgir hos dere?</span>
-              <svg class="icon faq__chevron" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </button>
-            <div class="faq__answer" hidden>
-              <div class="faq__answer-inner" data-i18n="faq3_a">Ja. Vi bruker Tesla Model 3, som har automatisk girkasse. Dette gir deg et gyldig førerekort med kode 78 (begrenset til automatgirkjøretøy). Ønsker du ubegrenset førerekort – retten til å kjøre manuelt – må prøven avlegges i en bil med manuell girkasse. Ta kontakt hvis du er usikker.</div>
+          <div class="review-card reveal">
+            <div class="review-card__stars" aria-label="5 av 5 stjerner">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <p class="review-card__text">«God og fleksibel timeplan. Fikk alltid time når jeg trengte det, og Tesla-bilen er veldig behagelig å øve i. Takk!»</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar review-card__avatar--initial" style="background:var(--green-dark)">S</div>
+              <div>
+                <strong class="review-card__name">Sara</strong>
+                <span class="review-card__meta">Elev, Lillestrøm</span>
+              </div>
             </div>
           </div>
 
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              <span data-i18n="faq4_q">Tilbyr dere kvelds- og helgetimer?</span>
-              <svg class="icon faq__chevron" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </button>
-            <div class="faq__answer" hidden>
-              <div class="faq__answer-inner" data-i18n="faq4_a">Absolutt. Vi tilbyr kjøretimer mandag til fredag fra 07:00 til 20:00, og lørdag fra 09:00 til 16:00. Du velger selv den timen som passer din hverdag best. For timer utenfor ordinær åpningstid kan du ta kontakt direkte.</div>
-            </div>
-          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              <span data-i18n="faq5_q">Hva koster det totalt å ta lappen?</span>
-              <svg class="icon faq__chevron" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </button>
-            <div class="faq__answer" hidden>
-              <div class="faq__answer-inner" data-i18n="faq5_a">Den totale kostnaden avhenger av antall kjøretimer du trenger. I snitt koster full føreropplæring mellom 20 000 og 35 000 kr, inkludert obligatoriske kurs, sikkerhetskurs, teorieksamen (390 kr) og praktisk prøve (ca. 1 200 kr). Vår Standard-pakke dekker behovene til de fleste elever.</div>
-            </div>
-          </div>
+    <!-- NØDVENDIGE LENKER -->
+    <section class="section links-section" id="lenker" aria-labelledby="links-heading">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">Ressurser</span>
+          <h2 class="section__title" id="links-heading">Nødvendige lenker</h2>
+          <p class="section__subtitle">Alt du trenger for å gjennomføre føreropplæringen samlet på ett sted.</p>
+        </div>
+        <div class="links-section__grid">
 
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              <span data-i18n="faq6_q">Tilbyr dere delbetaling?</span>
-              <svg class="icon faq__chevron" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </button>
-            <div class="faq__answer" hidden>
-              <div class="faq__answer-inner" data-i18n="faq6_a">Ja. Vi forstår at føreropplæringen er en stor investering, og vi ønsker å gjøre det tilgjengelig for alle. Vi tilbyr fleksible betalingsplaner – ta kontakt med oss for å finne en løsning som passer din økonomi.</div>
+          <a href="https://www.vegvesen.no/" target="_blank" rel="noopener noreferrer" class="link-card reveal">
+            <div class="link-card__icon link-card__icon--navy">
+              <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-shield"/></svg>
             </div>
-          </div>
+            <div class="link-card__body">
+              <strong class="link-card__title">Statens vegvesen</strong>
+              <span class="link-card__desc">Book teorieksamen og praktisk prøve (oppkjøring)</span>
+            </div>
+            <svg class="icon link-card__arrow" aria-hidden="true"><use href="#icon-external"/></svg>
+          </a>
+
+          <a href="https://www.teoriproveno.no/" target="_blank" rel="noopener noreferrer" class="link-card reveal">
+            <div class="link-card__icon link-card__icon--blue">
+              <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-globe"/></svg>
+            </div>
+            <div class="link-card__body">
+              <strong class="link-card__title">Teoriprøven.no</strong>
+              <span class="link-card__desc">Øv til teorieksamen med over 2000 spørsmål</span>
+            </div>
+            <svg class="icon link-card__arrow" aria-hidden="true"><use href="#icon-external"/></svg>
+          </a>
+
+          <a href="https://tabs.no/start" target="_blank" rel="noopener noreferrer" class="link-card reveal">
+            <div class="link-card__icon link-card__icon--green">
+              <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            </div>
+            <div class="link-card__body">
+              <strong class="link-card__title">TABS – Booking</strong>
+              <span class="link-card__desc">Book kjøretime direkte via TABS-appen</span>
+            </div>
+            <svg class="icon link-card__arrow" aria-hidden="true"><use href="#icon-external"/></svg>
+          </a>
+
+          <a href="https://www.facebook.com/LetsLearntrafikkskole" target="_blank" rel="noopener noreferrer" class="link-card reveal">
+            <div class="link-card__icon link-card__icon--amber">
+              <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-facebook"/></svg>
+            </div>
+            <div class="link-card__body">
+              <strong class="link-card__title">Facebook</strong>
+              <span class="link-card__desc">Følg oss på Facebook for oppdateringer</span>
+            </div>
+            <svg class="icon link-card__arrow" aria-hidden="true"><use href="#icon-external"/></svg>
+          </a>
 
         </div>
       </div>
@@ -660,9 +667,9 @@
     <section class="section contact" id="kontakt" aria-labelledby="contact-heading">
       <div class="container">
         <div class="section__header">
-          <span class="section__tag"    data-i18n="contact_tag">Ta kontakt</span>
-          <h2  class="section__title"   id="contact-heading" data-i18n="contact_title">Klar til å starte?</h2>
-          <p   class="section__subtitle" data-i18n="contact_subtitle">Fyll ut skjemaet, så tar vi kontakt med deg innen én virkedag.</p>
+          <span class="section__tag">Ta kontakt</span>
+          <h2 class="section__title" id="contact-heading">Klar til å starte?</h2>
+          <p class="section__subtitle">Fyll ut skjemaet, så tar vi kontakt med deg innen én virkedag.</p>
         </div>
         <div class="contact__grid">
 
@@ -670,90 +677,105 @@
             <div class="contact__item">
               <div class="contact__item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg></div>
               <div class="contact__item-body">
-                <span class="contact__item-label" data-i18n="contact_addr_label">Adresse</span>
+                <span class="contact__item-label">Adresse</span>
                 <strong class="contact__item-value">Nittedalsgata 12</strong>
-                <span class="contact__item-sub" data-i18n="contact_addr_sub">2000 Lillestrøm, Akershus</span>
+                <span class="contact__item-sub">2000 Lillestrøm, Akershus</span>
               </div>
             </div>
             <div class="contact__item">
               <div class="contact__item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg></div>
               <div class="contact__item-body">
-                <span class="contact__item-label" data-i18n="contact_phone_label">Telefon</span>
-                <a href="tel:+4712345678" class="contact__item-value">+47 XX XXX XXXX</a>
-                <span class="contact__item-sub" data-i18n="contact_phone_sub">Man–Fre 08:00–20:00</span>
+                <span class="contact__item-label">Telefon</span>
+                <a href="tel:+4790805256" class="contact__item-value">+47 908 05 256</a>
+                <span class="contact__item-sub">Man–Fre 08:00–20:00</span>
               </div>
             </div>
             <div class="contact__item">
               <div class="contact__item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg></div>
               <div class="contact__item-body">
-                <span class="contact__item-label" data-i18n="contact_email_label">E-post</span>
+                <span class="contact__item-label">E-post</span>
                 <a href="mailto:post@letslearntrafikkskole.no" class="contact__item-value">post@letslearntrafikkskole.no</a>
-                <span class="contact__item-sub" data-i18n="contact_email_sub">Svar innen én virkedag</span>
+                <span class="contact__item-sub">Svar innen én virkedag</span>
               </div>
             </div>
             <div class="contact__item">
               <div class="contact__item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg></div>
               <div class="contact__item-body">
-                <span class="contact__item-label" data-i18n="contact_hours_label">Åpningstider</span>
-                <strong class="contact__item-value" data-i18n="contact_hours_value">Man–Fre: 08:00–20:00</strong>
-                <span class="contact__item-sub" data-i18n="contact_hours_sub">Lørdag: 09:00–16:00</span>
+                <span class="contact__item-label">Åpningstider</span>
+                <strong class="contact__item-value">Man–Fre: 08:00–20:00</strong>
+                <span class="contact__item-sub">Lørdag: 09:00–16:00</span>
               </div>
             </div>
-            <a href="https://www.instagram.com/lets_learn_trafikkskole_as/?hl=en" target="_blank" rel="noopener noreferrer" class="contact__ig-link">
-              <svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
-              <span data-i18n="contact_ig">Følg oss på Instagram</span>
-            </a>
+            <div class="contact__socials">
+              <a href="https://www.instagram.com/lets_learn_trafikkskole_as/?hl=en" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="Instagram">
+                <svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
+                Instagram
+              </a>
+              <a href="https://www.facebook.com/LetsLearntrafikkskole" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="Facebook">
+                <svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg>
+                Facebook
+              </a>
+            </div>
+
+            <div class="contact__map">
+              <iframe
+                src="https://maps.google.com/maps?q=Nittedalsgata+12,+2000+Lillestrom,+Norway&output=embed&z=15"
+                width="100%" height="220" style="border:0;border-radius:var(--radius-md);"
+                allowfullscreen loading="lazy"
+                title="Kart over Let's Learn Trafikkskole, Nittedalsgata 12, Lillestrøm">
+              </iframe>
+            </div>
           </div>
 
           <form class="contact__form" id="contactForm" novalidate>
             <div class="form__row">
               <div class="form__group">
-                <label class="form__label" for="firstName" data-i18n="form_firstname">Fornavn</label>
+                <label class="form__label" for="firstName">Fornavn</label>
                 <input class="form__input" type="text" id="firstName" name="firstName" autocomplete="given-name" required>
               </div>
               <div class="form__group">
-                <label class="form__label" for="lastName" data-i18n="form_lastname">Etternavn</label>
+                <label class="form__label" for="lastName">Etternavn</label>
                 <input class="form__input" type="text" id="lastName" name="lastName" autocomplete="family-name" required>
               </div>
             </div>
             <div class="form__row">
               <div class="form__group">
-                <label class="form__label" for="phone" data-i18n="form_phone">Telefon</label>
+                <label class="form__label" for="phone">Telefon</label>
                 <input class="form__input" type="tel" id="phone" name="phone" autocomplete="tel" required>
               </div>
               <div class="form__group">
-                <label class="form__label" for="email" data-i18n="form_email">E-post</label>
+                <label class="form__label" for="email">E-post</label>
                 <input class="form__input" type="email" id="email" name="email" autocomplete="email" required>
               </div>
             </div>
             <div class="form__group">
-              <label class="form__label" for="interest" data-i18n="form_interest">Jeg er interessert i</label>
+              <label class="form__label" for="interest">Jeg er interessert i</label>
               <select class="form__select" id="interest" name="interest">
-                <option value=""          data-i18n="form_opt_default">Velg et alternativ</option>
-                <option value="grunnkurs" data-i18n="form_opt_grunnkurs">Trafikalt grunnkurs</option>
-                <option value="kjoretime" data-i18n="form_opt_kjoretime">Enkelt kjøretime</option>
-                <option value="standard"  data-i18n="form_opt_standard">Standard-pakken</option>
-                <option value="komplett"  data-i18n="form_opt_komplett">Komplett-pakken</option>
-                <option value="annet"     data-i18n="form_opt_annet">Annet / Ikke sikker ennå</option>
+                <option value="">Velg et alternativ</option>
+                <option value="grunnkurs">Trafikalt grunnkurs</option>
+                <option value="forstehjelpskurs">Førstehjelpskurs</option>
+                <option value="morkekjoring">Mørkekjøring</option>
+                <option value="kjoretime">Enkelt kjøretime</option>
+                <option value="standard">Standard-pakken</option>
+                <option value="komplett">Komplett-pakken</option>
+                <option value="annet">Annet / Ikke sikker ennå</option>
               </select>
             </div>
             <div class="form__group">
               <label class="form__label" for="message">
-                <span data-i18n="form_message">Melding</span>
-                <span class="form__optional" data-i18n="form_optional">(valgfritt)</span>
+                Melding <span class="form__optional">(valgfritt)</span>
               </label>
               <textarea class="form__textarea" id="message" name="message" rows="4"
-                data-i18n-placeholder="form_msg_placeholder"
                 placeholder="Fortell oss litt om deg og hva du lurer på…"></textarea>
             </div>
             <button type="submit" class="btn btn--primary btn--lg btn--full form__submit">
-              <span data-i18n="form_submit">Send melding</span>
+              <span>Send melding</span>
               <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
             </button>
-            <p class="form__privacy" data-i18n-html="form_privacy">Vi deler aldri personopplysningene dine med tredjeparter. Les vår <a href="#personvern">personvernerklæring</a>.</p>
+            <p class="form__privacy">Vi deler aldri personopplysningene dine med tredjeparter. Les vår <a href="#personvern">personvernerklæring</a>.</p>
             <div class="form__success" id="formSuccess" hidden role="status">
               <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
-              <strong data-i18n="form_success_msg">Takk! Vi tar kontakt med deg innen én virkedag.</strong>
+              <strong>Takk! Vi tar kontakt med deg innen én virkedag.</strong>
             </div>
           </form>
 
@@ -770,54 +792,45 @@
 
         <div class="site-footer__brand">
           <a href="#hjem" class="logo" aria-label="Let's Learn Trafikkskole – tilbake til toppen">
-            <svg class="logo__svg" width="155" height="47" viewBox="0 0 172 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-              <rect x="0" y="0" width="22" height="22" rx="4" fill="#EF4444"/>
-              <rect x="25" y="0" width="22" height="22" rx="4" fill="#22C55E"/>
-              <rect x="0" y="25" width="22" height="22" rx="4" fill="#3B82F6"/>
-              <rect x="25" y="25" width="22" height="22" rx="4" fill="#F59E0B"/>
-              <circle cx="11" cy="11" r="5" fill="rgba(255,255,255,0.88)"/>
-              <circle cx="36" cy="11" r="5" fill="rgba(255,255,255,0.88)"/>
-              <circle cx="11" cy="36" r="5" fill="rgba(255,255,255,0.88)"/>
-              <circle cx="36" cy="36" r="5" fill="rgba(255,255,255,0.88)"/>
-              <text x="56" y="23" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="800" font-size="17" fill="#ffffff">Let's Learn</text>
-              <text x="56" y="41" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="500" font-size="13" fill="rgba(255,255,255,0.55)">Trafikkskole</text>
-            </svg>
+            <span class="site-footer__logo-text">Let's Learn<br><small>Trafikkskole</small></span>
           </a>
-          <p class="site-footer__tagline" data-i18n="footer_tagline">Moderne trafikkskole i Lillestrøm. Vi gjør veien til lappen trygg, effektiv og tilgjengelig for alle.</p>
+          <p class="site-footer__tagline">Moderne trafikkskole i Lillestrøm. Vi gjør veien til lappen trygg, effektiv og tilgjengelig for alle.</p>
           <div class="site-footer__social">
             <a href="https://www.instagram.com/lets_learn_trafikkskole_as/?hl=en" target="_blank" rel="noopener noreferrer" class="site-footer__social-link" aria-label="Instagram">
               <svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
+            </a>
+            <a href="https://www.facebook.com/LetsLearntrafikkskole" target="_blank" rel="noopener noreferrer" class="site-footer__social-link" aria-label="Facebook">
+              <svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg>
             </a>
           </div>
         </div>
 
         <div class="site-footer__col">
-          <h4 class="site-footer__col-title" data-i18n="footer_nav_title">Navigasjon</h4>
+          <h4 class="site-footer__col-title">Navigasjon</h4>
           <ul class="site-footer__links" role="list">
-            <li><a href="#hjem"      data-i18n="footer_nav_home">Hjem</a></li>
-            <li><a href="#tjenester" data-i18n="footer_nav_services">Tjenester</a></li>
-            <li><a href="#kurs"      data-i18n="footer_nav_courses">Kurs</a></li>
-            <li><a href="#priser"    data-i18n="footer_nav_prices">Priser</a></li>
-            <li><a href="#faq"       data-i18n="footer_nav_faq">FAQ</a></li>
-            <li><a href="#kontakt"   data-i18n="footer_nav_contact">Kontakt</a></li>
+            <li><a href="#hjem">Hjem</a></li>
+            <li><a href="#kurs">Kurs</a></li>
+            <li><a href="#priser">Priser</a></li>
+            <li><a href="#lenker">Lenker</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
           </ul>
         </div>
 
         <div class="site-footer__col">
-          <h4 class="site-footer__col-title" data-i18n="footer_services_title">Tjenester</h4>
+          <h4 class="site-footer__col-title">Kurs</h4>
           <ul class="site-footer__links" role="list">
-            <li><a href="#tjenester" data-i18n="footer_s1">Trafikalt grunnkurs</a></li>
-            <li><a href="#tjenester" data-i18n="footer_s2">Kjøretimer</a></li>
-            <li><a href="#tjenester" data-i18n="footer_s3">Oppkjøring</a></li>
-            <li><a href="#kurs"      data-i18n="footer_s4">Sikkerhetskurs</a></li>
+            <li><a href="#kurs">Trafikalt grunnkurs</a></li>
+            <li><a href="#kurs">Førstehjelpskurs</a></li>
+            <li><a href="#kurs">Mørkekjøring</a></li>
+            <li><a href="#priser">Kjøretimer</a></li>
           </ul>
         </div>
 
         <div class="site-footer__col">
-          <h4 class="site-footer__col-title" data-i18n="footer_contact_title">Kontakt</h4>
+          <h4 class="site-footer__col-title">Kontakt</h4>
           <address class="site-footer__address">
             <p>Nittedalsgata 12<br>2000 Lillestrøm</p>
-            <a href="tel:+4712345678">+47 XX XXX XXXX</a>
+            <a href="tel:+4790805256">+47 908 05 256</a>
             <a href="mailto:post@letslearntrafikkskole.no">post@<wbr>letslearntrafikkskole.no</a>
           </address>
         </div>
@@ -825,8 +838,8 @@
       </div>
 
       <div class="site-footer__bottom">
-        <p data-i18n="footer_copyright">© 2025 Let's Learn Trafikkskole AS. Alle rettigheter forbeholdt.</p>
-        <a href="#personvern" id="personvern" data-i18n="footer_privacy">Personvernerklæring</a>
+        <p>© 2025 Let's Learn Trafikkskole AS. Alle rettigheter forbeholdt.</p>
+        <a href="#personvern" id="personvern">Personvernerklæring</a>
       </div>
     </div>
   </footer>
@@ -835,7 +848,6 @@
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"/></svg>
   </button>
 
-  <script src="js/translations.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

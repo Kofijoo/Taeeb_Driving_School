@@ -1,59 +1,9 @@
-/* Translations live in js/translations.js — edit that file for all text content. */
-
 (function () {
   'use strict';
 
   /* ── Utility ── */
   function $(id) { return document.getElementById(id); }
   function $$(sel) { return document.querySelectorAll(sel); }
-
-  /* ============================================================
-     LANGUAGE TOGGLE
-     ============================================================ */
-  var currentLang = 'no';
-
-  function applyTranslations(lang) {
-    var t = translations[lang];
-    if (!t) return;
-
-    $$('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (t[key] !== undefined) el.textContent = t[key];
-    });
-
-    $$('[data-i18n-html]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-html');
-      if (t[key] !== undefined) el.innerHTML = t[key];
-    });
-
-    $$('[data-i18n-placeholder]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-placeholder');
-      if (t[key] !== undefined) el.placeholder = t[key];
-    });
-
-    document.documentElement.lang = lang;
-    if (t.page_title) document.title = t.page_title;
-  }
-
-  function initLanguageToggle() {
-    var btnNo = $('btn-no');
-    var btnEn = $('btn-en');
-    if (!btnNo || !btnEn) return;
-
-    function setLang(lang) {
-      currentLang = lang;
-      applyTranslations(lang);
-      btnNo.classList.toggle('lang-toggle__btn--active', lang === 'no');
-      btnEn.classList.toggle('lang-toggle__btn--active', lang === 'en');
-      localStorage.setItem('site_lang', lang);
-    }
-
-    btnNo.addEventListener('click', function () { setLang('no'); });
-    btnEn.addEventListener('click', function () { setLang('en'); });
-
-    var saved = localStorage.getItem('site_lang') || 'no';
-    setLang(saved);
-  }
 
   /* ============================================================
      MOBILE MENU
@@ -137,38 +87,6 @@
   }
 
   /* ============================================================
-     FAQ ACCORDION
-     ============================================================ */
-  function initFAQ() {
-    var items = $$('.faq__item');
-    if (!items.length) return;
-
-    items.forEach(function (item) {
-      var button = item.querySelector('.faq__question');
-      var answer = item.querySelector('.faq__answer');
-      if (!button || !answer) return;
-
-      button.addEventListener('click', function () {
-        var isOpen = item.classList.contains('is-open');
-
-        items.forEach(function (other) {
-          if (other !== item) {
-            other.classList.remove('is-open');
-            var ob = other.querySelector('.faq__question');
-            var oa = other.querySelector('.faq__answer');
-            if (ob) ob.setAttribute('aria-expanded', 'false');
-            if (oa) oa.hidden = true;
-          }
-        });
-
-        item.classList.toggle('is-open', !isOpen);
-        button.setAttribute('aria-expanded', String(!isOpen));
-        answer.hidden = isOpen;
-      });
-    });
-  }
-
-  /* ============================================================
      BACK TO TOP
      ============================================================ */
   function initBackToTop() {
@@ -234,11 +152,10 @@
       if (!allValid) return;
 
       var submitBtn  = form.querySelector('.form__submit');
-      var submitSpan = submitBtn ? submitBtn.querySelector('[data-i18n="form_submit"]') : null;
-      var t          = translations[currentLang] || translations.no;
+      var submitSpan = submitBtn ? submitBtn.querySelector('span') : null;
 
       if (submitBtn)  submitBtn.disabled = true;
-      if (submitSpan) submitSpan.textContent = t.form_sending || 'Sender…';
+      if (submitSpan) submitSpan.textContent = 'Sender…';
 
       setTimeout(function () {
         form.reset();
@@ -250,7 +167,7 @@
           success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         if (submitBtn)  submitBtn.disabled = false;
-        if (submitSpan) submitSpan.textContent = t.form_submit || 'Send melding';
+        if (submitSpan) submitSpan.textContent = 'Send melding';
       }, 900);
     });
   }
@@ -276,11 +193,9 @@
      INIT
      ============================================================ */
   document.addEventListener('DOMContentLoaded', function () {
-    initLanguageToggle();
     initMobileMenu();
     initStickyHeader();
     initScrollSpy();
-    initFAQ();
     initBackToTop();
     initScrollReveal();
     initContactForm();

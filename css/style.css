@@ -285,42 +285,6 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 .site-header__actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
-/* ── Language Toggle ── */
-.lang-toggle {
-  display: flex;
-  align-items: center;
-  background: var(--gray-100);
-  border-radius: var(--radius-sm);
-  padding: 3px;
-  gap: 1px;
-}
-.lang-toggle__btn {
-  background: none;
-  border: none;
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  color: var(--gray-600);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
-  line-height: 1;
-}
-.lang-toggle__btn:hover { color: var(--navy); }
-.lang-toggle__btn--active {
-  background: var(--white);
-  color: var(--navy);
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
-}
-.lang-toggle__sep {
-  color: var(--gray-400);
-  font-size: 11px;
-  pointer-events: none;
-  user-select: none;
-  padding: 0 1px;
-}
-
 /* Hamburger */
 .hamburger {
   display: none;
@@ -1143,4 +1107,240 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 @media (max-width: 479px) {
   .container { padding-inline: 16px; }
+}
+
+/* ============================================================
+   LOGO IMAGE
+   ============================================================ */
+.logo__img { display: block; height: 48px; width: auto; }
+
+/* Footer logo text fallback */
+.site-footer__logo-text {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+.site-footer__logo-text small {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,.55);
+}
+
+/* ============================================================
+   COURSE CARDS
+   ============================================================ */
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.course-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.course-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+.course-card__img {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.course-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.course-card__img--firstaid {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.course-card__img--night {
+  background: linear-gradient(135deg, #1B2B5E 0%, #0F172A 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.course-card__body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.course-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+.course-card__text {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ============================================================
+   TABS SECTION
+   ============================================================ */
+.tabs-section { background: var(--gray-50); }
+.tabs-section__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+}
+.tabs-section__content { display: flex; flex-direction: column; gap: 20px; }
+.tabs-section__text { font-size: 17px; color: var(--gray-600); line-height: 1.7; max-width: 560px; }
+.tabs-section__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.tabs-phone {
+  width: 120px;
+  height: 120px;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews { background: var(--gray-50); }
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--gray-200);
+}
+.review-card__stars {
+  display: flex;
+  gap: 3px;
+  color: var(--amber);
+}
+.review-card__text {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.65;
+  flex: 1;
+  font-style: italic;
+}
+.review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.review-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.review-card__avatar--initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.review-card__name { display: block; font-size: 15px; font-weight: 700; color: var(--gray-900); }
+.review-card__meta { display: block; font-size: 13px; color: var(--gray-400); }
+
+/* ============================================================
+   NØDVENDIGE LENKER
+   ============================================================ */
+.links-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+.link-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--navy); }
+.link-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+}
+.link-card__icon--navy  { background: var(--navy); }
+.link-card__icon--blue  { background: var(--blue); }
+.link-card__icon--green { background: var(--green-dark); }
+.link-card__icon--amber { background: var(--amber); }
+.link-card__body { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.link-card__title { font-size: 16px; font-weight: 700; color: var(--gray-900); }
+.link-card__desc  { font-size: 13px; color: var(--gray-600); }
+.link-card__arrow { color: var(--gray-400); flex-shrink: 0; }
+
+/* ============================================================
+   CONTACT MAP + SOCIALS
+   ============================================================ */
+.contact__map { margin-top: 20px; border-radius: var(--radius-md); overflow: hidden; }
+.contact__socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.contact__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 8px 14px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  transition: background var(--transition), border-color var(--transition);
+}
+.contact__social-link:hover { background: var(--gray-100); border-color: var(--navy); }
+
+/* ============================================================
+   RESPONSIVE — NEW SECTIONS
+   ============================================================ */
+@media (max-width: 1023px) {
+  .courses__grid  { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+  .reviews__grid  { grid-template-columns: 1fr; }
+  .links-section__grid { grid-template-columns: 1fr; }
+  .tabs-section__inner { grid-template-columns: 1fr; }
+  .tabs-phone { display: none; }
+}
+@media (max-width: 767px) {
+  .courses__grid  { max-width: 100%; }
 }
