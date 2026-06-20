@@ -173,6 +173,38 @@
   }
 
   /* ============================================================
+     REVIEWS CAROUSEL
+     ============================================================ */
+  function initCarousel() {
+    var track  = document.querySelector('.carousel__track');
+    var slides = document.querySelectorAll('.carousel__slide');
+    var dots   = document.querySelectorAll('.carousel__dot');
+    var prev   = $('carouselPrev');
+    var next   = $('carouselNext');
+    if (!track || !slides.length) return;
+
+    var current = 0;
+    var timer;
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function (d, i) { d.classList.toggle('carousel__dot--active', i === current); });
+    }
+
+    function startAuto() { timer = setInterval(function () { goTo(current + 1); }, 5000); }
+    function stopAuto()  { clearInterval(timer); }
+
+    if (prev) prev.addEventListener('click', function () { stopAuto(); goTo(current - 1); startAuto(); });
+    if (next) next.addEventListener('click', function () { stopAuto(); goTo(current + 1); startAuto(); });
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { stopAuto(); goTo(i); startAuto(); });
+    });
+
+    startAuto();
+  }
+
+  /* ============================================================
      COOKIE BANNER
      ============================================================ */
   function initCookieBanner() {
@@ -200,6 +232,7 @@
     initScrollReveal();
     initContactForm();
     initCookieBanner();
+    initCarousel();
   });
 
 })();
