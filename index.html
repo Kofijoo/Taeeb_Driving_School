@@ -155,8 +155,9 @@
           <li><a href="#hjem"    class="main-nav__link">Hjem</a></li>
           <li><a href="#kurs"    class="main-nav__link">Kurs</a></li>
           <li><a href="#priser"  class="main-nav__link">Priser</a></li>
-          <li><a href="#lenker"  class="main-nav__link">Lenker</a></li>
-          <li><a href="#kontakt" class="main-nav__link">Kontakt</a></li>
+          <li><a href="#lenker"          class="main-nav__link">Lenker</a></li>
+          <li><a href="#kunngjøringer"  class="main-nav__link">Kunngjøringer</a></li>
+          <li><a href="#kontakt"        class="main-nav__link">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -617,6 +618,69 @@
       </div>
     </section>
 
+    <!-- ANNOUNCEMENTS -->
+    <section class="section announcements" id="kunngjøringer" aria-labelledby="announcements-heading">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="announcements-heading">Kunngjøringer</h2>
+          <p class="section__subtitle">Ukentlige tilbud, hendelser og forberedelsestips fra oss.</p>
+        </div>
+        <div class="announcements__list">
+
+          <!-- SHORT REMINDER CARD -->
+          <article class="ann-card ann-card--reminder reveal">
+            <div class="ann-card__meta">
+              <span class="ann-card__badge ann-card__badge--reminder">Påminnelse</span>
+              <time class="ann-card__date" datetime="2025-07-02">2. juli 2025</time>
+            </div>
+            <p class="ann-card__text">Hei, du har glattkjøring på onsdag kl 10:45 og vi kommer tilbake ca kl 15:30 til Furuset.</p>
+          </article>
+
+          <!-- LONG EDUCATIONAL CARD -->
+          <article class="ann-card ann-card--education reveal">
+            <div class="ann-card__meta">
+              <span class="ann-card__badge ann-card__badge--education">Opplæring</span>
+              <time class="ann-card__date" datetime="2025-06-28">28. juni 2025</time>
+            </div>
+            <h3 class="ann-card__title">Forberedelse til glattkjøring – ABS, ESP og Antispinn</h3>
+            <div class="ann-card__body">
+              <div class="ann-card__preview">
+                <p>Her er en enkel forklaring på de tre førerstøttesystemene du vil møte på kurset – med forslag til videoer som viser hvordan de fungerer i praksis.</p>
+              </div>
+              <div class="ann-card__full" hidden>
+                <h4>1. ABS – Blokkeringsfrie bremser</h4>
+                <p>ABS hindrer at hjulene låser seg under hard bremsing. Det gjør at du kan styre bilen samtidig som du bremser hardt. Hvis du må bråbremse på glatt vei, sørger ABS for at hjulene ikke sklir – bilen holder retningen og du unngår å miste kontrollen.</p>
+                <a class="ann-card__link" href="https://www.youtube.com/watch?v=yYjZ2Z8aN4E" target="_blank" rel="noopener noreferrer">Se video: Hvordan fungerer ABS?</a>
+
+                <h4>2. ESP – Elektronisk stabilitetsprogram</h4>
+                <p>ESP hjelper med å stabilisere bilen hvis den begynner å skli eller svinge ut av kontroll. Den bremser automatisk ett eller flere hjul for å rette opp bilen. Når du svinger brått for å unngå noe og bilen begynner å skli sidelengs, vil ESP gripe inn og hjelpe deg å holde bilen på veien.</p>
+                <a class="ann-card__link" href="https://www.youtube.com/watch?v=tIK4AcDqZ0g" target="_blank" rel="noopener noreferrer">Se video: Hvordan virker ESP?</a>
+
+                <h4>3. Antispinn (Traction Control System)</h4>
+                <p>Antispinn forhindrer at hjulene spinner for mye ved akselerasjon, spesielt på glatt føre. Systemet reduserer kraften til hjulene eller bremser dem for å få bedre grep. Når du kjører ut fra et kryss om vinteren og hjulene begynner å spinne, griper antispinn inn og gir deg jevn akselerasjon.</p>
+                <a class="ann-card__link" href="https://www.youtube.com/watch?v=RH2JJX-R9E4" target="_blank" rel="noopener noreferrer">Se video: Antispinn forklart enkelt</a>
+
+                <h4>Om sikkerhetskurset på øvingsbane</h4>
+                <p>Kurset varer i ca. 3 timer og er delt i fire deler:</p>
+                <ol class="ann-card__ol">
+                  <li>Teoretisk innledning (15 min) – Kort gjennomgang av målene for kurset.</li>
+                  <li>Kjøring på lukket bane (90 min) – Du kjører med andre skolebiler og opplever ulike situasjoner med glatt føre.</li>
+                  <li>Sikkerhetshallen (45 min) – Praktisk gjennomgang av sikring av personer og last i bilen.</li>
+                  <li>Oppsummering (30 min) – Vi snakker sammen om hva du har opplevd og lært.</li>
+                </ol>
+                <p>Ved oppmøte får du et ark med spørsmål. Første spørsmål handler om hva du tenker og forventer. Du skriver to korte setninger om hvorfor du er her i dag.</p>
+                <p>I kjøreøkten jobber vi sammen med ulike kjøresituasjoner og varierende vei- og værforhold. Gjør deg godt forberedt – si gjerne ifra hvis du lurer på noe!</p>
+              </div>
+            </div>
+            <button class="ann-card__toggle" aria-expanded="false" type="button">
+              Les mer <svg class="ann-card__toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="section contact" id="kontakt" aria-labelledby="contact-heading">
       <div class="container">
@@ -766,6 +830,7 @@
             <li><a href="#kurs">Kurs</a></li>
             <li><a href="#priser">Priser</a></li>
             <li><a href="#lenker">Lenker</a></li>
+            <li><a href="#kunngjøringer">Kunngjøringer</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
           </ul>
         </div>
@@ -797,6 +862,14 @@
       </div>
     </div>
   </footer>
+
+  <a href="https://m.me/LetsLearntrafikkskole" target="_blank" rel="noopener noreferrer"
+     class="messenger-fab" aria-label="Chat med oss på Messenger">
+    <svg class="messenger-fab__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.914 1.35 5.52 3.47 7.24V22l3.168-1.742C9.637 20.42 10.79 20.6 12 20.6c5.523 0 10-4.145 10-9.357S17.523 2 12 2zm1.006 12.6l-2.549-2.72-4.974 2.72 5.47-5.804 2.61 2.72 4.913-2.72-5.47 5.804z"/>
+    </svg>
+    <span class="messenger-fab__label">Meld oss</span>
+  </a>
 
   <button class="back-to-top" id="backToTop" aria-label="Tilbake til toppen">
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"/></svg>

@@ -18,7 +18,6 @@
       hamburger.classList.add('is-open');
       hamburger.setAttribute('aria-expanded', 'true');
       hamburger.setAttribute('aria-label', 'Lukk meny');
-      document.body.style.overflow = 'hidden';
     }
 
     function closeMenu() {
@@ -26,7 +25,6 @@
       hamburger.classList.remove('is-open');
       hamburger.setAttribute('aria-expanded', 'false');
       hamburger.setAttribute('aria-label', 'Åpne meny');
-      document.body.style.overflow = '';
     }
 
     hamburger.addEventListener('click', function () {
@@ -222,6 +220,33 @@
   }
 
   /* ============================================================
+     ANNOUNCEMENTS EXPAND/COLLAPSE
+     ============================================================ */
+  function initAnnouncements() {
+    $$('.ann-card__toggle').forEach(function (btn) {
+      var card    = btn.closest('.ann-card');
+      var preview = card.querySelector('.ann-card__preview');
+      var full    = card.querySelector('.ann-card__full');
+      if (!full) return;
+
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          full.hidden = true;
+          if (preview) preview.style.display = '';
+          btn.setAttribute('aria-expanded', 'false');
+          btn.childNodes[0].textContent = 'Les mer ';
+        } else {
+          full.hidden = false;
+          if (preview) preview.style.display = 'none';
+          btn.setAttribute('aria-expanded', 'true');
+          btn.childNodes[0].textContent = 'Vis mindre ';
+        }
+      });
+    });
+  }
+
+  /* ============================================================
      INIT
      ============================================================ */
   document.addEventListener('DOMContentLoaded', function () {
@@ -233,6 +258,7 @@
     initContactForm();
     initCookieBanner();
     initCarousel();
+    initAnnouncements();
   });
 
 })();
