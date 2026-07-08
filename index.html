@@ -154,8 +154,9 @@
         <ul class="main-nav__list" role="list">
           <li><a href="#hjem"    class="main-nav__link">Hjem</a></li>
           <li><a href="#kurs"    class="main-nav__link">Kurs</a></li>
-          <li><a href="#priser"  class="main-nav__link">Priser</a></li>
-          <li><a href="#lenker"          class="main-nav__link">Lenker</a></li>
+          <li><a href="#priser"     class="main-nav__link">Priser</a></li>
+          <li><a href="#bestilling" class="main-nav__link">Bestill kurs</a></li>
+          <li><a href="#lenker"     class="main-nav__link">Lenker</a></li>
           <li><a href="#kunngjøringer"  class="main-nav__link">Kunngjøringer</a></li>
           <li><a href="#kontakt"        class="main-nav__link">Kontakt</a></li>
         </ul>
@@ -420,6 +421,43 @@
       </div>
     </section>
 
+    <!-- KURSBESTILLING (TABS API) -->
+    <section class="section booking-section" id="bestilling" aria-labelledby="booking-heading">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="booking-heading">Bestill kurs</h2>
+          <p class="section__subtitle">Book kurs direkte her på siden – bestillingen går rett inn til oss.</p>
+        </div>
+
+        <!--
+          TABS API WIDGET
+          ══════════════════════════════════════════════════════
+          Når klienten mottar embed-koden fra TABS (support@tabs.no),
+          erstatt innholdet i div#tabs-booking-widget med den
+          koden de sender (iframe eller <script>-snippet).
+          ══════════════════════════════════════════════════════
+        -->
+        <div id="tabs-booking-widget" class="booking-widget">
+          <div class="booking-widget__placeholder">
+            <svg class="booking-widget__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+            </svg>
+            <h3 class="booking-widget__title">Kursbestilling aktiveres snart</h3>
+            <p class="booking-widget__text">Vi kobler til vårt bookingsystem. I mellomtiden kan du kontakte oss direkte for å bestille.</p>
+            <div class="booking-widget__actions">
+              <a href="#kontakt" class="btn btn--primary">Kontakt oss</a>
+              <a href="tel:+4790805256" class="btn btn--outline">Ring oss: +47 908 05 256</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- TABS BOOKING -->
     <section class="section tabs-section" aria-labelledby="tabs-heading">
       <div class="container">
@@ -631,7 +669,7 @@
           <article class="ann-card ann-card--reminder reveal">
             <div class="ann-card__meta">
               <span class="ann-card__badge ann-card__badge--reminder">Påminnelse</span>
-              <time class="ann-card__date" datetime="2025-07-02">2. juli 2025</time>
+              <time class="ann-card__date" datetime="2026-07-08">8. juli 2026</time>
             </div>
             <p class="ann-card__text">Hei, du har glattkjøring på onsdag kl 10:45 og vi kommer tilbake ca kl 15:30 til Furuset.</p>
           </article>
@@ -640,7 +678,7 @@
           <article class="ann-card ann-card--education reveal">
             <div class="ann-card__meta">
               <span class="ann-card__badge ann-card__badge--education">Opplæring</span>
-              <time class="ann-card__date" datetime="2025-06-28">28. juni 2025</time>
+              <time class="ann-card__date" datetime="2026-07-01">1. juli 2026</time>
             </div>
             <h3 class="ann-card__title">Forberedelse til glattkjøring – ABS, ESP og Antispinn</h3>
             <div class="ann-card__body">
@@ -829,6 +867,7 @@
             <li><a href="#hjem">Hjem</a></li>
             <li><a href="#kurs">Kurs</a></li>
             <li><a href="#priser">Priser</a></li>
+            <li><a href="#bestilling">Bestill kurs</a></li>
             <li><a href="#lenker">Lenker</a></li>
             <li><a href="#kunngjøringer">Kunngjøringer</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
@@ -857,7 +896,7 @@
       </div>
 
       <div class="site-footer__bottom">
-        <p>© 2025 Let's Learn Trafikkskole AS. Alle rettigheter forbeholdt.</p>
+        <p>© 2026 Let's Learn Trafikkskole AS. Alle rettigheter forbeholdt.</p>
         <a href="#personvern" id="personvern">Personvernerklæring</a>
       </div>
     </div>

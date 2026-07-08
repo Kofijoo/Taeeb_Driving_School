@@ -1201,6 +1201,68 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 }
 
 /* ============================================================
+   TABS BOOKING WIDGET SECTION
+   ============================================================ */
+.booking-widget {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.booking-widget__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 56px 32px;
+  background: var(--gray-50);
+  border: 2px dashed var(--gray-200);
+  border-radius: var(--radius-xl);
+  gap: 12px;
+}
+
+.booking-widget__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--navy);
+  opacity: .45;
+  margin-bottom: 4px;
+}
+
+.booking-widget__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.booking-widget__text {
+  font-size: 15px;
+  color: var(--gray-600);
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.booking-widget__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* When the TABS iframe/widget is active, remove the placeholder border */
+.booking-widget iframe,
+.booking-widget > :not(.booking-widget__placeholder) {
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 479px) {
+  .booking-widget__placeholder { padding: 40px 20px; }
+  .booking-widget__actions { flex-direction: column; align-items: stretch; }
+}
+
+/* ============================================================
    ANNOUNCEMENTS SECTION
    ============================================================ */
 .announcements__list {
