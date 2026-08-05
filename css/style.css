@@ -1204,7 +1204,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
    TABS BOOKING WIDGET SECTION
    ============================================================ */
 .booking-widget {
-  max-width: 680px;
+  max-width: 900px;
   margin-inline: auto;
 }
 
@@ -1437,7 +1437,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .courses__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 40px;
 }
 .course-card {
   background: var(--white);
