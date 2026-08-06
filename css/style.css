@@ -204,9 +204,10 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .topbar {
   background: var(--navy-dark);
   color: rgba(255,255,255,.75);
-  font-size: 13px;
-  padding-block: 8px;
+  font-size: 15px;
+  padding-block: 12px;
 }
+.topbar .icon--sm { width: 18px; height: 18px; }
 .topbar__inner {
   display: flex;
   align-items: center;
@@ -257,7 +258,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 14px;
+  padding-block: 18px;
   gap: 24px;
 }
 
@@ -269,16 +270,19 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 4px;
   gap: 2px;
 }
 .main-nav__link {
   display: block;
-  padding: 8px 14px;
-  font-size: 14px;
+  padding: 9px 10px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--gray-600);
   border-radius: var(--radius-sm);
   transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
 }
 .main-nav__link:hover  { color: var(--navy); background: var(--gray-100); }
 .main-nav__link.active { color: var(--navy); font-weight: 700; }
@@ -1174,6 +1178,10 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   letter-spacing: -0.02em;
   text-shadow: 0 2px 12px rgba(0,0,0,.6);
 }
+.hero__cta {
+  align-self: center;
+  margin-top: 12px;
+}
 @media (max-width: 767px) {
   .hero--video { min-height: 52vh; }
   .hero__left { max-width: 90%; padding-left: 24px; }
@@ -1183,7 +1191,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 /* ============================================================
    LOGO IMAGE
    ============================================================ */
-.logo__img { display: block; height: 48px; width: auto; }
+.logo__img { display: block; height: 60px; width: auto; }
 
 /* Footer logo text fallback */
 .site-footer__logo-text {
