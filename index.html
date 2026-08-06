@@ -204,7 +204,7 @@
       <!--
         LIVE KURSOVERSIKT — officeId 549 (Let's Learn Trafikkskole)
         Henter kurs direkte fra TABS JSON-API (samme whitelistede domene
-        som widgeten i #bestilling). Ett kort per unike kursnavn, viser
+        samme whitelistede domene). Ett kort per unike kursnavn, viser
         nærmeste kommende dato. Bilde velges automatisk ut fra nøkkelord
         i kursnavnet (se IMAGE_RULES) — nye/ukjente kursnavn faller
         tilbake til et generisk bilde.
@@ -330,10 +330,10 @@
     </section>
 
     <!-- WHY US -->
-    <section class="section why-us" aria-labelledby="why-heading">
+    <section class="section why-us" id="om-oss" aria-labelledby="why-heading">
       <div class="container">
         <div class="section__header section__header--light">
-          <h2 class="section__title section__title--light" id="why-heading">Hvorfor velge oss</h2>
+          <h2 class="section__title section__title--light" id="why-heading">Om oss</h2>
         </div>
         <div class="why-us__grid">
           <div class="feature-card reveal">
@@ -366,6 +366,35 @@
             <h3 class="feature-card__title">Delbetaling</h3>
             <p class="feature-card__text">Vi tilbyr fleksible betalingsløsninger som gjør det enklere å komme i gang uten å betale alt på én gang.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKINGKALENDER -->
+    <section class="section bookingkalender" id="bookingkalender" aria-labelledby="bookingkalender-heading">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="bookingkalender-heading">Bookingkalender</h2>
+          <p class="section__subtitle">Let's Learn Trafikkskole</p>
+        </div>
+
+        <!--
+          TABS API WIDGET — officeId 549 (Let's Learn Trafikkskole)
+          Domenet letslearntrafikkskole.no er whitelistet i TABS under
+          TABSweb > Avansert > "Domener for API bruk".
+          Ingen API-nøkkel brukes her — dette er HTML/JS-widgeten,
+          som kun krever officeId + whitelistet domene.
+        -->
+        <script>var officeId = 549;</script>
+        <script src="https://api.tabs.no/js/api.js?v2.0.0"></script>
+
+        <!--
+          TABS BOOKING CALENDAR — kjøretimer
+          data-product-id="113" = "Kjøretime" (Booking web: Ja i Varelageret)
+          data-class-id="308" = Klasse B
+        -->
+        <div class="booking-widget bookingkalender__widget">
+          <div id="api-calendar" data-product-id="113" data-class-id="308"></div>
         </div>
       </div>
     </section>
@@ -410,7 +439,7 @@
                 <span>Sikkerhetskurs</span>
               </li>
             </ul>
-            <a href="#bestilling" class="btn btn--outline btn--full">Kom i gang</a>
+            <a href="#bookingkalender" class="btn btn--outline btn--full">Kom i gang</a>
           </div>
 
           <div class="pricing-card pricing-card--featured reveal">
@@ -445,7 +474,7 @@
                 <span>Oppkjøringsgaranti</span>
               </li>
             </ul>
-            <a href="#bestilling" class="btn btn--primary btn--full">Kom i gang</a>
+            <a href="#bookingkalender" class="btn btn--primary btn--full">Kom i gang</a>
           </div>
 
           <div class="pricing-card reveal">
@@ -479,7 +508,7 @@
                 <span>Oppkjøringsforberedelse</span>
               </li>
             </ul>
-            <a href="#bestilling" class="btn btn--outline btn--full">Kom i gang</a>
+            <a href="#bookingkalender" class="btn btn--outline btn--full">Kom i gang</a>
           </div>
 
         </div>
@@ -514,37 +543,6 @@
           </div>
           <p class="pricing__note">Alle priser er veiledende og kan endres. Delbetaling tilgjengelig. Kontakt oss for et tilpasset tilbud.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- KURSBESTILLING (TABS API) -->
-    <section class="section booking-section" id="bestilling" aria-labelledby="booking-heading">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title" id="booking-heading">Bestill kurs</h2>
-          <p class="section__subtitle">Book kurs direkte her på siden – bestillingen går rett inn til oss.</p>
-        </div>
-
-        <!--
-          TABS API WIDGET — officeId 549 (Let's Learn Trafikkskole)
-          Domenet kofijoo.github.io er whitelistet i TABS under
-          TABSweb > Avansert > "Domener for API bruk".
-          Ingen API-nøkkel brukes her — dette er HTML/JS-widgeten,
-          som kun krever officeId + whitelistet domene.
-        -->
-        <script>var officeId = 549;</script>
-        <script src="https://api.tabs.no/js/api.js?v2.0.0"></script>
-
-        <!--
-          TABS BOOKING CALENDAR — kjøretimer
-          data-product-id="113" = "Kjøretime" (Booking web: Ja i Varelageret)
-          data-class-id="308" = Klasse B
-        -->
-        <h3 class="booking-widget__title" style="text-align:center; margin-top:56px; margin-bottom:20px;">Bestill kjøretime</h3>
-        <div class="booking-widget">
-          <div id="api-calendar" data-product-id="113" data-class-id="308"></div>
-        </div>
-
       </div>
     </section>
 

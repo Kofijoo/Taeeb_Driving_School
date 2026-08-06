@@ -1215,6 +1215,9 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   max-width: 900px;
   margin-inline: auto;
 }
+.bookingkalender__widget {
+  max-width: 700px;
+}
 
 .booking-widget__placeholder {
   display: flex;
