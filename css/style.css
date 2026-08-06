@@ -950,54 +950,31 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
   padding-bottom: 56px;
+  align-items: start;
 }
 
-.site-footer__tagline {
-  font-size: 14px;
-  line-height: 1.75;
-  margin-block: 18px 24px;
-  color: rgba(255,255,255,.55);
-  max-width: 280px;
-}
+.site-footer__brand { display: flex; flex-direction: column; gap: 16px; }
+.site-footer__brand--left   { align-items: flex-start; text-align: left; }
+.site-footer__brand--center { align-items: center; text-align: center; }
+.site-footer__brand--right  { align-items: flex-end; text-align: right; }
 
-.site-footer__social { display: flex; gap: 10px; }
-.site-footer__social-link {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  background: rgba(255,255,255,.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,.65);
-  transition: background var(--transition), color var(--transition);
-}
-.site-footer__social-link:hover { background: var(--green); color: var(--white); }
-
-.site-footer__col-title {
-  font-size: 12px;
+.site-footer__col-heading {
+  font-size: 16px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: rgba(255,255,255,.35);
-  margin-bottom: 18px;
+  color: var(--white);
 }
 
-.site-footer__links { display: flex; flex-direction: column; gap: 10px; }
-.site-footer__links a {
-  font-size: 14px;
-  color: rgba(255,255,255,.58);
-  transition: color var(--transition);
+.site-footer__logo-img { height: 88px; width: auto; }
+.site-footer__social-img {
+  height: 56px;
+  width: auto;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition);
 }
-.site-footer__links a:hover { color: var(--white); }
-
-.site-footer__address { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
-.site-footer__address p { color: rgba(255,255,255,.58); line-height: 1.6; }
-.site-footer__address a { color: rgba(255,255,255,.58); transition: color var(--transition); }
-.site-footer__address a:hover { color: var(--white); }
+.site-footer__social-img:hover { transform: translateY(-2px); }
 
 .site-footer__bottom {
   border-top: 1px solid rgba(255,255,255,.08);
@@ -1056,7 +1033,6 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   .pricing-card--featured { transform: none; }
   .pricing__individual-grid { grid-template-columns: repeat(2, 1fr); }
   .contact__grid     { grid-template-columns: 1fr; }
-  .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
 
   .quick-actions__grid { grid-template-columns: 1fr; }
   .quick-actions { margin-top: 0; }
@@ -1108,6 +1084,8 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   .pricing__individual-grid { grid-template-columns: 1fr; }
 
   .site-footer__grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 36px; }
+  .site-footer__brand--left,
+  .site-footer__brand--right { align-items: center; text-align: center; }
   .site-footer__bottom { flex-direction: column; text-align: center; gap: 10px; }
 
   .form__row { grid-template-columns: 1fr; }
@@ -1192,21 +1170,6 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
    LOGO IMAGE
    ============================================================ */
 .logo__img { display: block; height: 60px; width: auto; }
-
-/* Footer logo text fallback */
-.site-footer__logo-text {
-  display: block;
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.2;
-  letter-spacing: -.01em;
-}
-.site-footer__logo-text small {
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(255,255,255,.55);
-}
 
 /* ============================================================
    TABS BOOKING WIDGET SECTION
