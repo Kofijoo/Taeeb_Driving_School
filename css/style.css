@@ -1447,6 +1447,12 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
+.courses__status {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--gray-600);
+  padding: 40px 0;
+}
 .course-card {
   background: var(--white);
   border-radius: var(--radius-lg);

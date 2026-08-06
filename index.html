@@ -191,45 +191,142 @@
     </section>
 
     <!-- KURS -->
-    <section class="section courses" id="kurs" aria-labelledby="courses-heading">
+    <section class="section courses" id="kursoversikt" aria-labelledby="courses-heading">
       <div class="container">
         <div class="section__header">
-          <h2 class="section__title" id="courses-heading">Kursene vi tilbyr</h2>
+          <h2 class="section__title" id="courses-heading">Kursoversikt</h2>
         </div>
-        <div class="courses__grid">
-
-          <article class="course-card reveal">
-            <div class="course-card__img">
-              <img src="images/tesla_rear_window.png" alt="Tesla Model Y, Let's Learn Trafikkskole">
-            </div>
-            <div class="course-card__body">
-              <h3 class="course-card__title">Trafikalt grunnkurs</h3>
-              <a href="#bestilling" class="btn btn--outline">Meld deg på</a>
-            </div>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-card__img">
-              <img src="images/Førstehjelpskurs.png" alt="Førstehjelpskurs">
-            </div>
-            <div class="course-card__body">
-              <h3 class="course-card__title">Førstehjelpskurs</h3>
-              <a href="#bestilling" class="btn btn--outline">Meld deg på</a>
-            </div>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-card__img">
-              <img src="images/Mørkekjøring.png" alt="Mørkekjøring">
-            </div>
-            <div class="course-card__body">
-              <h3 class="course-card__title">Mørkekjøring</h3>
-              <a href="#bestilling" class="btn btn--outline">Meld deg på</a>
-            </div>
-          </article>
-
+        <div class="courses__grid" id="liveCourses">
+          <p class="courses__status">Henter kurs …</p>
         </div>
       </div>
+
+      <!--
+        LIVE KURSOVERSIKT — officeId 549 (Let's Learn Trafikkskole)
+        Henter kurs direkte fra TABS JSON-API (samme whitelistede domene
+        som widgeten i #bestilling). Ett kort per unike kursnavn, viser
+        nærmeste kommende dato. Bilde velges automatisk ut fra nøkkelord
+        i kursnavnet (se IMAGE_RULES) — nye/ukjente kursnavn faller
+        tilbake til et generisk bilde.
+      -->
+      <script>
+      (function () {
+        var IMAGE_RULES = [
+          { match: /grunnkurs/i,   src: 'images/tesla_rear_window.png', alt: 'Trafikalt grunnkurs, Let\'s Learn Trafikkskole' },
+          { match: /førstehjelp/i, src: 'images/Førstehjelpskurs.png',  alt: 'Førstehjelpskurs' },
+          { match: /mørke/i,       src: 'images/Mørkekjøring.png',      alt: 'Mørkekjøring' }
+        ];
+        var FALLBACK_IMAGE = { src: 'images/skole_sign.png', alt: 'Let\'s Learn Trafikkskole' };
+
+        function imageFor(name) {
+          for (var i = 0; i < IMAGE_RULES.length; i++) {
+            if (IMAGE_RULES[i].match.test(name)) return IMAGE_RULES[i];
+          }
+          return FALLBACK_IMAGE;
+        }
+
+        function formatDate(iso) {
+          try {
+            return new Intl.DateTimeFormat('nb-NO', { weekday: 'short', day: '2-digit', month: '2-digit', year: '2-digit' }).format(new Date(iso));
+          } catch (e) { return ''; }
+        }
+
+        function formatPrice(n) {
+          return typeof n === 'number' ? n.toLocaleString('nb-NO') + ' kr' : '';
+        }
+
+        function showStatus(message) {
+          var grid = document.getElementById('liveCourses');
+          grid.innerHTML = '';
+          var p = document.createElement('p');
+          p.className = 'courses__status';
+          p.textContent = message;
+          grid.appendChild(p);
+        }
+
+        function render(courses) {
+          var grid = document.getElementById('liveCourses');
+          grid.innerHTML = '';
+          if (!courses.length) {
+            showStatus('Ingen kurs tilgjengelig for øyeblikket. Ring oss på +47 908 05 256 for informasjon.');
+            return;
+          }
+          courses.forEach(function (c) {
+            var img = imageFor(c.courseName);
+
+            var article = document.createElement('article');
+            article.className = 'course-card reveal';
+
+            var imgWrap = document.createElement('div');
+            imgWrap.className = 'course-card__img';
+            var imgEl = document.createElement('img');
+            imgEl.src = img.src;
+            imgEl.alt = img.alt;
+            imgWrap.appendChild(imgEl);
+
+            var body = document.createElement('div');
+            body.className = 'course-card__body';
+
+            var title = document.createElement('h3');
+            title.className = 'course-card__title';
+            title.textContent = c.courseName;
+
+            var meta = document.createElement('p');
+            meta.className = 'course-card__text';
+            meta.textContent = 'Neste oppstart: ' + formatDate(c.nextDate) + ' · ' + formatPrice(c.price);
+
+            var btn = document.createElement('a');
+            btn.href = '#';
+            btn.className = 'btn btn--outline';
+            btn.textContent = 'Meld deg på';
+            btn.addEventListener('click', function (ev) {
+              ev.preventDefault();
+              var api = window.TABS || window.TSP;
+              if (api && api.api && api.api.loadCourse) {
+                api.api.loadCourse(btn, c.courseId, c.classId);
+              }
+            });
+
+            body.appendChild(title);
+            body.appendChild(meta);
+            body.appendChild(btn);
+            article.appendChild(imgWrap);
+            article.appendChild(body);
+            grid.appendChild(article);
+          });
+        }
+
+        fetch('https://api.tabs.no/api/v2/course?officeId=549')
+          .then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
+          .then(function (data) {
+            var byName = {};
+            (data.courseGroups || []).forEach(function (group) {
+              (group.courses || []).forEach(function (course) {
+                (course.courseEvents || []).forEach(function (ev) {
+                  var e = ev.courseEvent;
+                  if (!e || !e.courseDays || !e.courseDays.length) return;
+                  var name = e.courseName;
+                  var startISO = e.courseDays[0].startTime;
+                  if (!byName[name] || new Date(startISO) < new Date(byName[name].nextDate)) {
+                    byName[name] = {
+                      courseName: name,
+                      price: e.price,
+                      nextDate: startISO,
+                      courseId: e.courseId,
+                      classId: e.classId
+                    };
+                  }
+                });
+              });
+            });
+            render(Object.values(byName));
+          })
+          .catch(function (err) {
+            console.error('Kunne ikke hente kurs fra TABS', err);
+            showStatus('Kursoversikten kunne ikke lastes akkurat nå. Ring oss på +47 908 05 256 for informasjon.');
+          });
+      })();
+      </script>
     </section>
 
     <!-- WHY US -->
@@ -437,9 +534,6 @@
         -->
         <script>var officeId = 549;</script>
         <script src="https://api.tabs.no/js/api.js?v2.0.0"></script>
-        <div class="booking-widget">
-          <div id="api-course" data-version="v2" data-accordion="true"></div>
-        </div>
 
         <!--
           TABS BOOKING CALENDAR — kjøretimer
