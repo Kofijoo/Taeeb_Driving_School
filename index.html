@@ -212,11 +212,11 @@
       <script>
       (function () {
         var IMAGE_RULES = [
-          { match: /grunnkurs/i,   src: 'images/tesla_rear_window.png', alt: 'Trafikalt grunnkurs, Let\'s Learn Trafikkskole' },
-          { match: /førstehjelp/i, src: 'images/Førstehjelpskurs.png',  alt: 'Førstehjelpskurs' },
-          { match: /mørke/i,       src: 'images/Mørkekjøring.png',      alt: 'Mørkekjøring' }
+          { match: /grunnkurs/i,   src: 'images/tesla_rear_window-card.jpg', alt: 'Trafikalt grunnkurs, Let\'s Learn Trafikkskole' },
+          { match: /førstehjelp/i, src: 'images/forstehjelpskurs-card.jpg',  alt: 'Førstehjelpskurs' },
+          { match: /mørke/i,       src: 'images/morkekjoring-card.jpg',      alt: 'Mørkekjøring' }
         ];
-        var FALLBACK_IMAGE = { src: 'images/skole_sign.png', alt: 'Let\'s Learn Trafikkskole' };
+        var FALLBACK_IMAGE = { src: 'images/skole_sign-card.jpg', alt: 'Let\'s Learn Trafikkskole' };
 
         function imageFor(name) {
           for (var i = 0; i < IMAGE_RULES.length; i++) {
@@ -345,7 +345,7 @@
           som kun krever officeId + whitelistet domene.
         -->
         <script>var officeId = 549;</script>
-        <script src="https://api.tabs.no/js/api.js?v2.0.0"></script>
+        <script src="https://api.tabs.no/js/api.js?v2.0.0" defer></script>
 
         <!--
           TABS BOOKING CALENDAR — kjøretimer
