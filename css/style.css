@@ -660,109 +660,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
    ============================================================ */
 .pricing { background: var(--gray-50); }
 
-.pricing__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  align-items: start;
-  margin-bottom: 48px;
-}
-
-.pricing-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 36px 28px;
-  border: 2px solid var(--gray-200);
-  position: relative;
-  transition: box-shadow var(--transition);
-}
-.pricing-card:hover { box-shadow: var(--shadow-xl); }
-
-.pricing-card--featured {
-  border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(34,197,94,.1), var(--shadow-lg);
-  transform: scale(1.02);
-}
-
-.pricing-card__badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--green);
-  color: var(--white);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 16px;
-  border-radius: var(--radius-full);
-  white-space: nowrap;
-}
-
-.pricing-card__name {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--gray-600);
-  margin-bottom: 12px;
-}
-
-.pricing-card__price {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  margin-bottom: 8px;
-}
-.pricing-card__amount   { font-size: 38px; font-weight: 800; color: var(--navy); line-height: 1; }
-.pricing-card__currency { font-size: 18px; font-weight: 500; color: var(--gray-600); }
-.pricing-card__desc     { font-size: 14px; color: var(--gray-600); margin-bottom: 28px; }
-
-.pricing-card__features { display: flex; flex-direction: column; gap: 13px; margin-bottom: 32px; }
-
-.pricing-card__feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 14px;
-  color: var(--gray-600);
-}
-.pricing-card__feature--yes .icon { color: var(--green-dark); flex-shrink: 0; margin-top: 2px; }
-.pricing-card__feature--no        { color: var(--gray-400); }
-.pricing-card__feature--no .icon  { color: var(--gray-400); flex-shrink: 0; margin-top: 2px; }
-
-/* Individual pricing table */
-.pricing__individual {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  border: 1px solid var(--gray-200);
-}
-.pricing__individual-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 24px;
-}
-.pricing__individual-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.individual-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--gray-50);
-  border-radius: var(--radius-sm);
-  padding: 13px 16px;
-}
-.individual-row__name  { font-size: 14px; color: var(--gray-600); }
-.individual-row__price { font-size: 14px; font-weight: 700; color: var(--navy); white-space: nowrap; margin-left: 8px; }
-
-.pricing__note { font-size: 13px; color: var(--gray-400); line-height: 1.6; }
+.pricing__live-alt { margin-top: 8px; }
 
 /* ============================================================
    FAQ
@@ -1029,9 +927,6 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   .services__grid    { grid-template-columns: 1fr; }
   .steps__grid       { grid-template-columns: repeat(2, 1fr); }
   .why-us__grid      { grid-template-columns: repeat(2, 1fr); }
-  .pricing__grid     { grid-template-columns: 1fr; }
-  .pricing-card--featured { transform: none; }
-  .pricing__individual-grid { grid-template-columns: repeat(2, 1fr); }
   .contact__grid     { grid-template-columns: 1fr; }
 
   .quick-actions__grid { grid-template-columns: 1fr; }
@@ -1081,7 +976,6 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
   .steps__grid { grid-template-columns: 1fr; }
   .why-us__grid { grid-template-columns: 1fr; }
-  .pricing__individual-grid { grid-template-columns: 1fr; }
 
   .site-footer__grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 36px; }
   .site-footer__brand--left,
@@ -1179,7 +1073,9 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   margin-inline: auto;
 }
 .bookingkalender__widget {
-  max-width: 700px;
+  max-width: 1100px;
+  max-height: 620px;
+  overflow-y: auto;
 }
 
 .booking-widget__placeholder {
