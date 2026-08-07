@@ -919,17 +919,15 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 }
 
 .site-footer__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 56px;
   padding-bottom: 56px;
-  align-items: start;
 }
 
-.site-footer__brand { display: flex; flex-direction: column; gap: 16px; }
-.site-footer__brand--left   { align-items: flex-start; text-align: left; }
-.site-footer__brand--center { align-items: flex-end; text-align: right; }
-.site-footer__brand--right  { align-items: flex-start; text-align: left; }
+.site-footer__brand { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
 
 .site-footer__col-heading {
   font-size: 16px;
@@ -938,13 +936,13 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 }
 
 .site-footer__logo-img { height: 104px; width: auto; }
-.site-footer__social-img {
+.site-footer__social-icon {
+  width: 104px;
   height: 104px;
-  width: auto;
-  border-radius: var(--radius-sm);
-  transition: transform var(--transition);
+  color: rgba(255,255,255,.85);
+  transition: color var(--transition), transform var(--transition);
 }
-.site-footer__social-img:hover { transform: translateY(-2px); }
+.site-footer__social-icon:hover { color: var(--white); transform: translateY(-2px); }
 
 .site-footer__bottom {
   border-top: 1px solid rgba(255,255,255,.08);
@@ -1049,10 +1047,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   .steps__grid { grid-template-columns: 1fr; }
   .why-us__grid { grid-template-columns: 1fr; }
 
-  .site-footer__grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 36px; }
-  .site-footer__brand--left,
-  .site-footer__brand--center,
-  .site-footer__brand--right { align-items: center; text-align: center; }
+  .site-footer__grid { gap: 32px; padding-bottom: 36px; }
   .site-footer__bottom { flex-direction: column; text-align: center; gap: 10px; }
 
   .form__row { grid-template-columns: 1fr; }
