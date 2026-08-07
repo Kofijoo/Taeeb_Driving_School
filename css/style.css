@@ -660,7 +660,79 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
    ============================================================ */
 .pricing { background: var(--gray-50); }
 
-.pricing__live-alt { margin-top: 8px; }
+.pricing__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.pricing__tab {
+  padding: 10px 28px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--gray-200);
+  background: var(--white);
+  color: var(--gray-600);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.pricing__tab:hover { border-color: var(--green); }
+.pricing__tab.is-active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+.pricing__panel {
+  max-width: 800px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pricing__group {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 12px;
+  box-shadow: var(--shadow-md);
+}
+.pricing__group-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--green-dark);
+  margin-bottom: 16px;
+}
+
+.pricing__rows { display: flex; flex-direction: column; }
+.pricing__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.pricing__row:last-child { border-bottom: none; }
+
+.pricing__row-info { display: flex; flex-direction: column; gap: 4px; }
+.pricing__row-name { font-size: 15px; font-weight: 600; color: var(--navy); }
+.pricing__row-desc { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+.pricing__row-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 479px) {
+  .pricing__tab { padding: 9px 20px; font-size: 13px; }
+  .pricing__group { padding: 22px 18px 8px; }
+}
 
 /* ============================================================
    FAQ
