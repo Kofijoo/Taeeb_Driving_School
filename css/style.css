@@ -849,15 +849,15 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .site-footer__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 24px;
   padding-bottom: 56px;
   align-items: start;
 }
 
 .site-footer__brand { display: flex; flex-direction: column; gap: 16px; }
 .site-footer__brand--left   { align-items: flex-start; text-align: left; }
-.site-footer__brand--center { align-items: center; text-align: center; }
-.site-footer__brand--right  { align-items: flex-end; text-align: right; }
+.site-footer__brand--center { align-items: flex-end; text-align: right; }
+.site-footer__brand--right  { align-items: flex-start; text-align: left; }
 
 .site-footer__col-heading {
   font-size: 16px;
@@ -865,9 +865,9 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   color: var(--white);
 }
 
-.site-footer__logo-img { height: 88px; width: auto; }
+.site-footer__logo-img { height: 104px; width: auto; }
 .site-footer__social-img {
-  height: 56px;
+  height: 104px;
   width: auto;
   border-radius: var(--radius-sm);
   transition: transform var(--transition);
@@ -979,6 +979,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
   .site-footer__grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 36px; }
   .site-footer__brand--left,
+  .site-footer__brand--center,
   .site-footer__brand--right { align-items: center; text-align: center; }
   .site-footer__bottom { flex-direction: column; text-align: center; gap: 10px; }
 
