@@ -340,9 +340,21 @@
       </script>
     </section>
 
-    <!-- BOOKINGKALENDER -->
-    <section class="section bookingkalender" id="bookingkalender" aria-labelledby="bookingkalender-heading">
-      <div class="container">
+    <!--
+      BOOKINGKALENDER — modal, not part of homepage flow
+      Hidden via opacity/pointer-events (NOT display:none) so the TABS
+      calendar widget always initializes against real dimensions,
+      never a zero-size hidden container. Opened only by clicking the
+      "Bookingkalender" nav link (see script at the bottom of this
+      block); officeId/api.js load exactly once, here, regardless of
+      whether the modal has been opened yet.
+    -->
+    <div class="calendar-modal" id="bookingkalender" aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-calendar-close></div>
+      <div class="calendar-modal__panel" role="dialog" aria-modal="true" aria-labelledby="bookingkalender-heading">
+        <button type="button" class="calendar-modal__close" aria-label="Lukk bookingkalender" data-calendar-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
         <div class="section__header">
           <h2 class="section__title" id="bookingkalender-heading">Bookingkalender</h2>
           <p class="section__subtitle">Let's Learn Trafikkskole</p>
@@ -367,7 +379,39 @@
           <div id="api-calendar" data-product-id="113" data-class-id="308"></div>
         </div>
       </div>
-    </section>
+    </div>
+
+    <script>
+    (function () {
+      var modal = document.getElementById('bookingkalender');
+      var trigger = document.querySelector('a[href="#bookingkalender"]');
+      if (!modal || !trigger) return;
+
+      function openModal(ev) {
+        if (ev) ev.preventDefault();
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('calendar-modal-open');
+        var closeBtn = modal.querySelector('.calendar-modal__close');
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('calendar-modal-open');
+        trigger.focus();
+      }
+
+      trigger.addEventListener('click', openModal);
+      modal.querySelectorAll('[data-calendar-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+      });
+      document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
+    </script>
 
     <!-- PRICING -->
     <section class="section pricing" id="priser" aria-labelledby="pricing-heading">

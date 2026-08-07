@@ -1079,6 +1079,65 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   overflow-y: auto;
 }
 
+/* ============================================================
+   BOOKINGKALENDER MODAL
+   Deliberately NOT display:none — the panel keeps real layout
+   dimensions at all times so the TABS calendar widget inside never
+   initializes against a zero-size container. Only opacity/pointer-
+   events/z-index toggle.
+   ============================================================ */
+.calendar-modal {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.calendar-modal.is-open {
+  z-index: 2000;
+  opacity: 1;
+  pointer-events: auto;
+}
+.calendar-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, .6);
+}
+.calendar-modal__panel {
+  position: relative;
+  margin: 5vh auto;
+  width: min(94vw, 1180px);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: 48px 40px 40px;
+}
+.calendar-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--gray-100);
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.calendar-modal__close:hover { background: var(--gray-200); color: var(--navy); }
+body.calendar-modal-open { overflow: hidden; }
+
+@media (max-width: 767px) {
+  .calendar-modal__panel { width: 96vw; padding: 44px 16px 24px; margin-block: 3vh; }
+}
+
 .booking-widget__placeholder {
   display: flex;
   flex-direction: column;
