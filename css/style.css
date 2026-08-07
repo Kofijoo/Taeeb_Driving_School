@@ -1307,11 +1307,8 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
    ============================================================ */
 .courses__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  max-width: 1000px;
-  margin-inline: auto;
 }
 .courses__status {
   grid-column: 1 / -1;
