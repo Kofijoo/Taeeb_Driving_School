@@ -1364,6 +1364,13 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   font-weight: 700;
   color: var(--gray-900);
 }
+.course-card__class {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--green-dark);
+}
 .course-card__text {
   font-size: 15px;
   color: var(--gray-600);
