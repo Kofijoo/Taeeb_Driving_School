@@ -460,6 +460,15 @@
 
         function renderPanel(drivingClass) {
           panelEl.innerHTML = '';
+
+          if (drivingClass.short_name === 'TG') {
+            var note = document.createElement('p');
+            note.className = 'pricing__tg-note';
+            note.innerHTML = 'Kurspriser for Trafikalt grunnkurs, Førstehjelp og Mørkekjøring vises med oppdaterte datoer og direkte påmelding under <a href="#kursoversikt">Kursoversikt</a>.';
+            panelEl.appendChild(note);
+            return;
+          }
+
           var types = (drivingClass.productTypes || []).filter(function (t) { return (t.products || []).length; });
           if (!types.length) {
             showStatus('Ingen priser tilgjengelig for ' + drivingClass.short_name + ' akkurat nå.');
