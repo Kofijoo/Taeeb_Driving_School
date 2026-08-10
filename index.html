@@ -103,7 +103,7 @@
   <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
     <p class="cookie-banner__title" id="cookieTitle">Vi bruker informasjonskapsler</p>
-    <p class="cookie-banner__desc" id="cookieDesc">Vi bruker informasjonskapsler for å forbedre din brukeropplevelse. Les vår <a href="#personvern">personvernerklæring</a>.</p>
+    <p class="cookie-banner__desc" id="cookieDesc">Vi bruker informasjonskapsler for å forbedre din brukeropplevelse. Les vår <a href="#" data-modal-target="personvernModal">personvernerklæring</a>.</p>
     <div class="cookie-banner__actions">
       <button class="btn btn--outline-white btn--sm" id="cookieDecline">Avslå</button>
       <button class="btn btn--primary btn--sm" id="cookieAccept">Godta alle</button>
@@ -157,7 +157,7 @@
           <li><a href="#priser"         class="main-nav__link">Priser og pakker</a></li>
           <li><a href="#bookingkalender" class="main-nav__link">Bookingkalender</a></li>
           <li><a href="https://tabs.no/start" target="_blank" rel="noopener noreferrer" class="main-nav__link">TABS Elev</a></li>
-          <li><a href="#" class="main-nav__link">Skolereglement</a></li>
+          <li><a href="#" class="main-nav__link" data-modal-target="skolereglementModal">Skolereglement</a></li>
           <li><a href="#lenker"         class="main-nav__link">Nyttige lenker</a></li>
           <li><a href="#" class="main-nav__link">Gavekort</a></li>
           <li><a href="#om-oss"         class="main-nav__link">Om oss</a></li>
@@ -413,6 +413,101 @@
       });
     })();
     </script>
+
+    <!--
+      PERSONVERNERKLÆRING + SKOLEREGLEMENT — modals, not part of
+      homepage flow. Same .calendar-modal visual pattern as
+      Bookingkalender above, but handled by a separate, generic
+      handler (initGenericModals in js/app.js) so Bookingkalender's
+      own script above is never touched. Opened via
+      [data-modal-target] triggers anywhere on the page (the three
+      Personvernerklæring links, and the Skolereglement nav item).
+    -->
+    <div class="calendar-modal" id="personvernModal" data-generic-modal aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-modal-close></div>
+      <div class="calendar-modal__panel" role="dialog" aria-modal="true" aria-labelledby="personvern-modal-heading">
+        <button type="button" class="calendar-modal__close" aria-label="Lukk personvernerklæring" data-modal-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
+        <div class="legal-content">
+          <h2 id="personvern-modal-heading">Personvernerklæring</h2>
+          <p class="legal-content__updated">Sist oppdatert: august 2026</p>
+
+          <h3>1. Behandlingsansvarlig</h3>
+          <p>Let's Learn Trafikkskole AS er behandlingsansvarlig for personopplysninger som samles inn via denne nettsiden. Kontakt: <a href="mailto:taeeb_m@hotmail.com">taeeb_m@hotmail.com</a>.</p>
+
+          <h3>2. Hvilke opplysninger vi samler inn</h3>
+          <p>Når du fyller ut kontaktskjemaet, samler vi inn: fornavn, etternavn, telefonnummer, e-postadresse, hva du er interessert i, og eventuell melding du skriver.</p>
+
+          <h3>3. Hvorfor vi samler inn opplysningene</h3>
+          <p>Opplysningene brukes til å besvare henvendelsen din og følge opp spørsmål om våre tjenester, kurs og kjøretimer.</p>
+
+          <h3>4. Hvordan henvendelsen behandles</h3>
+          <p>Når du sender skjemaet, formidles opplysningene via tjenesten Formspree til skolens e-postadresse. Formspree er en ekstern leverandør som formidler skjemainnsendinger på vei til oss.</p>
+
+          <h3>5. Hvor lenge vi lagrer opplysningene</h3>
+          <p>Vi oppbevarer personopplysninger så lenge det er nødvendig for å behandle og følge opp henvendelsen. Opplysningene slettes når de ikke lenger er nødvendige for formålet, med mindre skolen har behov eller plikt til å oppbevare dem lenger.</p>
+
+          <h3>6. Booking og kurs via TABS</h3>
+          <p>Nettsiden bruker bookingsystemet TABS til kursoversikt, bookingkalender og TABS Elev-innlogging. Når du bestiller kurs eller kjøretimer, eller logger inn via TABS Elev, registreres disse opplysningene i TABS sitt system — atskilt fra opplysningene du sender via kontaktskjemaet.</p>
+
+          <h3>7. Lokal lagring i nettleseren</h3>
+          <p>Nettsiden lagrer valget du gjør i informasjonsbanneret (godta/avslå) lokalt i nettleseren din, slik at du ikke får spørsmålet på nytt ved neste besøk. Dette er ikke en informasjonskapsel (cookie). Nettsiden bruker i dag ikke analyseverktøy eller sporing.</p>
+
+          <h3>8. Kart (Google Maps)</h3>
+          <p>Kontaktseksjonen viser et innebygd kart fra Google Maps. Google kan behandle opplysninger i henhold til sin egen personvernerklæring når kartet lastes.</p>
+
+          <h3>9. Sosiale medier og Messenger</h3>
+          <p>Nettsiden lenker til skolens Instagram- og Facebook-side, og har en snarvei til Facebook Messenger. Bruk av disse omfattes av Meta sine egne vilkår og personvernerklæring.</p>
+
+          <h3>10. Analyseverktøy</h3>
+          <p>Google Analytics eller annet sporingsverktøy er ikke installert per i dag. Denne erklæringen oppdateres dersom det endres.</p>
+
+          <h3>11. Tredjepartstjenester</h3>
+          <p>Nettsiden bruker følgende tredjepartstjenester: Formspree (kontaktskjema), TABS (booking, kurs og betaling), Google Maps (kart) og Meta/Facebook (Instagram, Facebook og Messenger).</p>
+
+          <h3>12. Dine rettigheter</h3>
+          <p>Du kan blant annet ha rett til innsyn, retting, sletting, begrensning av behandling og andre rettigheter etter gjeldende personvernregelverk. Ta kontakt med skolen dersom du ønsker å benytte deg av dine rettigheter.</p>
+
+          <h3>13. Kontakt</h3>
+          <p><a href="mailto:taeeb_m@hotmail.com">taeeb_m@hotmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar-modal" id="skolereglementModal" data-generic-modal aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-modal-close></div>
+      <div class="calendar-modal__panel" role="dialog" aria-modal="true" aria-labelledby="skolereglement-modal-heading">
+        <button type="button" class="calendar-modal__close" aria-label="Lukk skolereglement" data-modal-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
+        <div class="legal-content">
+          <h2 id="skolereglement-modal-heading">Skolereglement</h2>
+
+          <h3>Bestilling</h3>
+          <p>Elever kan bestille kjøretimer via nettsiden eller ved å kontakte Let's Learn Trafikkskole direkte.</p>
+
+          <h3>Avbestilling</h3>
+          <p>Avbestilling kan gjøres via TABS Elev eller ved å kontakte Let's Learn Trafikkskole direkte.</p>
+
+          <h3>Sen avbestilling</h3>
+          <p>Ved sen avbestilling bes eleven kontakte Let's Learn Trafikkskole direkte.</p>
+
+          <h3>Uteblivelse</h3>
+          <p>Ved uteblivelse belastes eleven 50 % av prisen for den bestilte timen.</p>
+
+          <!--
+            TODO — resterende punkter venter på bekreftet informasjon
+            fra Taeeb. Legg til som nye <h3>/<p> i samme mønster som
+            over når innholdet er bekreftet. IKKE publiser før da:
+            Betaling, Kurs, Oppmøte, Elevens ansvar,
+            Trafikkskolens ansvar, Førerprøve.
+          -->
+
+          <p>Har du spørsmål om bestilling, avbestilling eller oppmøte, kontakt Let's Learn Trafikkskole.</p>
+        </div>
+      </div>
+    </div>
 
     <!-- PRICING -->
     <section class="section pricing" id="priser" aria-labelledby="pricing-heading">
@@ -890,7 +985,7 @@
               <span>Send melding</span>
               <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
             </button>
-            <p class="form__privacy">Vi deler aldri personopplysningene dine med tredjeparter. Les vår <a href="#personvern">personvernerklæring</a>.</p>
+            <p class="form__privacy">Se hvordan vi behandler opplysningene dine i vår <a href="#" data-modal-target="personvernModal">personvernerklæring</a>.</p>
             <div class="form__success" id="formSuccess" hidden role="status">
               <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
               <strong>Takk! Vi tar kontakt med deg innen én virkedag.</strong>
@@ -940,7 +1035,7 @@
 
       <div class="site-footer__bottom">
         <p>© 2026 Let's Learn Trafikkskole AS. Alle rettigheter forbeholdt.</p>
-        <a href="#personvern" id="personvern">Personvernerklæring</a>
+        <a href="#" data-modal-target="personvernModal">Personvernerklæring</a>
       </div>
     </div>
   </footer>

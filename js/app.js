@@ -195,6 +195,82 @@
   }
 
   /* ============================================================
+     GENERIC MODALS (Personvernerklæring, Skolereglement)
+     Same .calendar-modal visual pattern as Bookingkalender, but that
+     modal keeps its own separate, untouched script above -- this
+     handler only ever targets elements marked [data-generic-modal],
+     so it can never interfere with Bookingkalender's behaviour.
+     ============================================================ */
+  function initGenericModals() {
+    var modals = document.querySelectorAll('.calendar-modal[data-generic-modal]');
+    if (!modals.length) return;
+
+    var lastTrigger = null;
+
+    function focusableIn(modal) {
+      return Array.prototype.slice.call(
+        modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      ).filter(function (el) { return el.offsetParent !== null; });
+    }
+
+    function openModal(modal, trigger) {
+      lastTrigger = trigger || document.activeElement;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('calendar-modal-open');
+      var closeBtn = modal.querySelector('.calendar-modal__close');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      var anyOtherOpen = document.querySelector('.calendar-modal.is-open');
+      if (!anyOtherOpen) document.body.classList.remove('calendar-modal-open');
+      if (lastTrigger) lastTrigger.focus();
+    }
+
+    document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
+      var modal = document.getElementById(trigger.getAttribute('data-modal-target'));
+      if (!modal) return;
+      trigger.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        openModal(modal, trigger);
+      });
+    });
+
+    modals.forEach(function (modal) {
+      modal.querySelectorAll('[data-modal-close]').forEach(function (el) {
+        el.addEventListener('click', function () { closeModal(modal); });
+      });
+    });
+
+    document.addEventListener('keydown', function (ev) {
+      var openModalEl = document.querySelector('.calendar-modal[data-generic-modal].is-open');
+      if (!openModalEl) return;
+
+      if (ev.key === 'Escape') {
+        closeModal(openModalEl);
+        return;
+      }
+
+      if (ev.key === 'Tab') {
+        var focusable = focusableIn(openModalEl);
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last  = focusable[focusable.length - 1];
+        if (ev.shiftKey && document.activeElement === first) {
+          ev.preventDefault();
+          last.focus();
+        } else if (!ev.shiftKey && document.activeElement === last) {
+          ev.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
+
+  /* ============================================================
      REVIEWS CAROUSEL
      ============================================================ */
   function initCarousel() {
@@ -281,6 +357,7 @@
     initScrollReveal();
     initContactForm();
     initCookieBanner();
+    initGenericModals();
     initCarousel();
     initAnnouncements();
   });

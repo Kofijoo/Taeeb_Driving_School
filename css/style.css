@@ -1209,6 +1209,36 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .calendar-modal__close:hover { background: var(--gray-200); color: var(--navy); }
 body.calendar-modal-open { overflow: hidden; }
 
+.legal-content {
+  max-width: 680px;
+  margin-inline: auto;
+}
+.legal-content h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.legal-content__updated {
+  font-size: 13px;
+  color: var(--gray-400);
+  margin-bottom: 28px;
+}
+.legal-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.legal-content h3:first-of-type { margin-top: 0; }
+.legal-content p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+.legal-content a { color: var(--green-dark); font-weight: 700; text-decoration: underline; }
+
 @media (max-width: 767px) {
   .calendar-modal__panel { width: 96vw; padding: 44px 16px 24px; margin-block: 3vh; }
 }
