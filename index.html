@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Let's Learn Trafikkskole – Lillestrøm</title>
-  <meta name="description" content="Let's Learn Trafikkskole i Lillestrøm tilbyr kjøretimer, trafikalt grunnkurs og øvrige kurs med Tesla Model Y. Book enkelt via TABS.">
+  <meta name="description" content="Let's Learn Trafikkskole i Lillestrøm tilbyr kjøretimer, trafikalt grunnkurs og øvrige kurs med automatgir. Book enkelt via TABS.">
   <link rel="canonical" href="https://letslearntrafikkskole.no/">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -17,13 +17,13 @@
   <meta property="og:site_name" content="Let's Learn Trafikkskole">
   <meta property="og:locale" content="nb_NO">
   <meta property="og:title" content="Let's Learn Trafikkskole – Lillestrøm">
-  <meta property="og:description" content="Let's Learn Trafikkskole i Lillestrøm tilbyr kjøretimer, trafikalt grunnkurs og øvrige kurs med Tesla Model Y. Book enkelt via TABS.">
+  <meta property="og:description" content="Let's Learn Trafikkskole i Lillestrøm tilbyr kjøretimer, trafikalt grunnkurs og øvrige kurs med automatgir. Book enkelt via TABS.">
   <meta property="og:image" content="https://letslearntrafikkskole.no/images/social-share.jpg">
   <meta property="og:image:alt" content="Let's Learn Trafikkskole logo">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Let's Learn Trafikkskole – Lillestrøm">
-  <meta name="twitter:description" content="Let's Learn Trafikkskole i Lillestrøm tilbyr kjøretimer, trafikalt grunnkurs og øvrige kurs med Tesla Model Y. Book enkelt via TABS.">
+  <meta name="twitter:description" content="Let's Learn Trafikkskole i Lillestrøm tilbyr kjøretimer, trafikalt grunnkurs og øvrige kurs med automatgir. Book enkelt via TABS.">
   <meta name="twitter:image" content="https://letslearntrafikkskole.no/images/social-share.jpg">
 
   <link rel="stylesheet" href="css/style.css">
@@ -487,7 +487,7 @@
           <p>Let's Learn Trafikkskole AS er behandlingsansvarlig for personopplysninger som samles inn via denne nettsiden. Kontakt: <a href="mailto:taeeb_m@hotmail.com">taeeb_m@hotmail.com</a>.</p>
 
           <h3>2. Hvilke opplysninger vi samler inn</h3>
-          <p>Når du fyller ut kontaktskjemaet, samler vi inn: fornavn, etternavn, telefonnummer, e-postadresse, hva du er interessert i, og eventuell melding du skriver.</p>
+          <p>Når du fyller ut kontaktskjemaet, samler vi inn: fornavn, etternavn, telefonnummer, e-postadresse, hva du er interessert i, og eventuell melding du skriver. Når du sender en pakkeforespørsel, samler vi inn: fornavn, etternavn, mobilnummer, e-postadresse, hvilken pakke du har valgt, samt eventuelt ønsket område/møtested, ønsket oppstart og tilleggsinfo du oppgir.</p>
 
           <h3>3. Hvorfor vi samler inn opplysningene</h3>
           <p>Opplysningene brukes til å besvare henvendelsen din og følge opp spørsmål om våre tjenester, kurs og kjøretimer.</p>
@@ -559,6 +559,90 @@
       </div>
     </div>
 
+    <!-- PACKAGE ENQUIRY MODAL — reuses the same [data-generic-modal] pattern as
+         Personvernerklæring/Skolereglement above; initGenericModals() handles
+         open/close/focus-trap/Escape/backdrop/scroll-lock automatically. -->
+    <div class="calendar-modal" id="pakkeModal" data-generic-modal aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-modal-close></div>
+      <div class="calendar-modal__panel calendar-modal__panel--form" role="dialog" aria-modal="true" aria-labelledby="pakke-modal-heading">
+        <button type="button" class="calendar-modal__close" aria-label="Lukk pakkeforespørsel" data-modal-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
+        <div class="package-form-wrap">
+          <h2 id="pakke-modal-heading" class="package-form__heading">Bestill pakke</h2>
+          <p class="package-form__selected">Valgt pakke: <strong id="pakkeSelectedLabel">—</strong></p>
+
+          <form class="contact__form package-form" id="pakkeForm" novalidate action="https://formspree.io/f/meajgjdb" method="POST">
+            <input type="text" name="_gotcha" class="form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="type" value="Pakkeforespørsel">
+            <input type="hidden" name="valgt_pakke" id="pakkeValgtPakke" value="">
+            <input type="hidden" name="_subject" id="pakkeSubject" value="">
+
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="pakkeFornavn">Fornavn</label>
+                <input class="form__input" type="text" id="pakkeFornavn" name="fornavn" autocomplete="given-name" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="pakkeEtternavn">Etternavn</label>
+                <input class="form__input" type="text" id="pakkeEtternavn" name="etternavn" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="pakkeMobil">Mobil</label>
+                <input class="form__input" type="tel" id="pakkeMobil" name="mobil" autocomplete="tel" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="pakkeEmail">E-post</label>
+                <input class="form__input" type="email" id="pakkeEmail" name="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="pakkeOmrade">
+                Ønsket område/møtested <span class="form__optional">(valgfritt)</span>
+              </label>
+              <input class="form__input" type="text" id="pakkeOmrade" name="omrade" placeholder="F.eks. Lillestrøm, Strømmen, Skjetten…">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="pakkeOppstart">
+                Når ønsker du å starte? <span class="form__optional">(valgfritt)</span>
+              </label>
+              <select class="form__select" id="pakkeOppstart" name="onsket_oppstart">
+                <option value="">Velg et alternativ</option>
+                <option value="Snarest">Snarest</option>
+                <option value="Innen 1 måned">Innen 1 måned</option>
+                <option value="Fleksibel">Fleksibel</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="pakkeMelding">
+                Tilleggsinfo <span class="form__optional">(valgfritt)</span>
+              </label>
+              <textarea class="form__textarea" id="pakkeMelding" name="melding" rows="3" placeholder="Noe mer vi bør vite?"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg btn--full form__submit">
+              <span>Send forespørsel</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </button>
+            <p class="form__privacy">Dette er en forespørsel, ikke en bekreftet bestilling — skolen tar kontakt med deg. Se hvordan vi behandler opplysningene dine i vår <a href="#" data-modal-target="personvernModal">personvernerklæring</a>.</p>
+            <div class="form__success" id="pakkeFormSuccess" hidden role="status">
+              <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
+              <strong>Takk for forespørselen! Vi tar kontakt med deg innen én virkedag.</strong>
+            </div>
+            <div class="form__error" id="pakkeFormError" hidden role="alert">
+              <div class="form__error-head">
+                <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+                <strong>Beklager, forespørselen kunne ikke sendes.</strong>
+              </div>
+              <span>Prøv igjen eller kontakt oss direkte på telefon eller e-post.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <!-- PRICING -->
     <section class="section pricing" id="priser" aria-labelledby="pricing-heading">
       <div class="container">
@@ -574,6 +658,64 @@
           vises under Kursoversikt, ikke duplisert her.
         -->
         <div class="pricing__panel">
+
+          <div class="pricing__group pricing__group--packages">
+            <h3 class="pricing__group-title">Pakker</h3>
+            <div class="package-grid">
+
+              <div class="package-card package-card--featured">
+                <span class="package-card__badge">Mest populær</span>
+                <h4 class="package-card__title">SUPERPAKKE</h4>
+                <p class="package-card__subtitle">Vår mest populære pakke</p>
+                <p class="package-card__price">29 100 kr</p>
+                <ul class="package-card__list">
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>10 kjøretimer</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Trinnvurdering – trinn 2</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Trinnvurdering – trinn 3</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Sikkerhetskurs på bane</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Sikkerhetskurs på vei</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Leie av bil til førerprøven</li>
+                </ul>
+                <ul class="package-card__notes">
+                  <li>Gebyr til NAF er inkludert i pakken.</li>
+                  <li>Kjøretimer utover de 10 inkluderte timene kommer i tillegg.</li>
+                  <li>Kjøring til og fra øvingsbanen er inkludert.</li>
+                </ul>
+                <button type="button" class="btn btn--primary btn--full package-card__cta" data-modal-target="pakkeModal" data-package="superpakke">Velg pakke</button>
+              </div>
+
+              <div class="package-card">
+                <h4 class="package-card__title">10 kjøretimer</h4>
+                <p class="package-card__subtitle">Kjøretimepakke automat</p>
+                <p class="package-card__price">8 000 kr</p>
+                <span class="package-card__saving">Spar 500 kr</span>
+                <ul class="package-card__list">
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>10 kjøretimer</li>
+                </ul>
+                <button type="button" class="btn btn--outline btn--full package-card__cta" data-modal-target="pakkeModal" data-package="kjoretimepakke">Velg pakke</button>
+              </div>
+
+              <div class="package-card">
+                <h4 class="package-card__title">Obligatorisk pakke</h4>
+                <p class="package-card__subtitle">Alt det obligatoriske du trenger</p>
+                <p class="package-card__price">24 100 kr</p>
+                <ul class="package-card__list">
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Trinnvurdering – trinn 2</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Trinnvurdering – trinn 3</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Sikkerhetskurs på bane</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Sikkerhetskurs på vei</li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Leie av bil til førerprøven</li>
+                </ul>
+                <ul class="package-card__notes">
+                  <li>Gebyr til NAF er inkludert i pakken.</li>
+                  <li>Kjøring til og fra øvingsbanen er inkludert.</li>
+                  <li>Pakken dekker ikke kjøretimer, oppkjøring eller gebyr til Statens vegvesen.</li>
+                </ul>
+                <button type="button" class="btn btn--outline btn--full package-card__cta" data-modal-target="pakkeModal" data-package="obligatorisk">Forespørsel</button>
+              </div>
+
+            </div>
+          </div>
 
           <div class="pricing__group">
             <h3 class="pricing__group-title">Kjøretimer og opplæring</h3>
@@ -675,14 +817,6 @@
             </div>
           </div>
 
-          <!--
-            PAKKER — venter på fullstendig informasjon fra Taeeb.
-            Bekreftet så langt: "Pakkeløsning 1: 10 × Kjøretime" (pris
-            og øvrig innhold ukjent). Legg til en ny .pricing__group
-            her, i samme mønster som gruppene over, når innhold og
-            pris er bekreftet. Ikke publiser før da.
-          -->
-
         </div>
       </div>
     </section>
@@ -693,36 +827,54 @@
         <div class="section__header section__header--light">
           <h2 class="section__title section__title--light" id="why-heading">Om oss</h2>
         </div>
+
+        <div class="om-oss__intro">
+          <div class="om-oss__block">
+            <p>Let's Learn Trafikkskole ble etablert i 2015 og bygger på erfaring med trafikkopplæring siden 2011. Før etableringen arbeidet vår trafikklærer ved Universal Trafikkskole. Vår trafikklærer fullførte trafikklærerutdanningen ved Høgskolen i Nord-Trøndelag – nå en del av Nord universitet – i 2011. Dette gir undervisningen et solid faglig og pedagogisk fundament.</p>
+            <p>Trafikkskolen ligger sentralt, midt i hjertet av Lillestrøm. Vi ønsker å gjøre opplæringen så tilgjengelig som mulig og er derfor fleksible når det gjelder møtested. Etter avtale kan vi møte elever i blant annet Lillestrøm, Strømmen, Skjetten og Lørenskog, ved Triaden og Metro senter samt på Stovner, Haugenstua, Furuset og Lindeberg.</p>
+          </div>
+          <div class="om-oss__block">
+            <p>Vi tilbyr føreropplæring med automatgir og benytter moderne, lettkjørte og sikre biler. Den primære skolebilen er Tesla Model Y, mens Hyundai Kona brukes som reservebil. Bilene gir elevene en komfortabel og trygg ramme for opplæringen.</p>
+          </div>
+          <div class="om-oss__block">
+            <p>Gjennom mange års arbeid med føreropplæring har vi hjulpet et stort antall elever på veien mot førerkortet. Vi kombinerer faglig kompetanse med trygg, tålmodig og individuelt tilpasset undervisning. Hos oss skal hver elev føle seg sett, forstått og godt ivaretatt.</p>
+            <p>Vi vet at elever har ulike erfaringer, behov og måter å lære på. Derfor tilpasser vi opplæringen til den enkelte og følger elevens utvikling nøye gjennom hele opplæringsløpet.</p>
+            <p>God kommunikasjon er avgjørende for trygg og effektiv læring. Vi har derfor gode ressurser til å tilby undervisning på norsk, arabisk og tyrkisk. Muligheten til å få forklaringer på et språk eleven forstår godt, kan gjøre opplæringen tydeligere, tryggere og lettere å mestre.</p>
+            <p>Enten du kjører for første gang, føler deg usikker i trafikken eller ønsker å fullføre en påbegynt opplæring, møter vi deg med ro, respekt og tydelig veiledning.</p>
+            <p>Vårt mål er ikke bare å hjelpe deg med å bestå førerprøven. Vi ønsker å gi deg gode holdninger, trygghet og varige ferdigheter som gjør deg til en sikker og ansvarlig sjåfør – også etter at førerkortet er på plass.</p>
+          </div>
+        </div>
+
         <div class="why-us__grid">
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-zap"/></svg></div>
             <h3 class="feature-card__title">Tesla Model Y</h3>
-            <p class="feature-card__text">Kjør i en moderne elbil med automatgir, avanserte sikkerhetssystemer og en komfortabel kjøreopplevelse.</p>
+            <p class="feature-card__text">Kjør i en moderne elbil med automatgir, avanserte sikkerhetssystemer og høy komfort.</p>
           </div>
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-users"/></svg></div>
-            <h3 class="feature-card__title">Erfaren instruktør</h3>
-            <p class="feature-card__text">Mange år erfaring og hundrevis av elever som har bestått føreropplæringen. Din trygghet og mestring er alt som teller.</p>
+            <h3 class="feature-card__title">Erfaren kjørelærer</h3>
+            <p class="feature-card__text">Få trygg og profesjonell opplæring av en erfaren kjørelærer. Undervisningen tilpasses ditt nivå og dine behov.</p>
           </div>
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-calendar"/></svg></div>
-            <h3 class="feature-card__title">Fleksibel timeplan</h3>
-            <p class="feature-card__text">Timer fra tidlig morgen til sen kveld, og i helgene. Din hverdag bestemmer, ikke vår åpningstid.</p>
+            <h3 class="feature-card__title">Fleksible kjøretimer</h3>
+            <p class="feature-card__text">Vi tilbyr kjøretimer fra tidlig morgen til sen kveld – også i helgene. Opplæringen tilpasses din hverdag.</p>
           </div>
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-globe"/></svg></div>
-            <h3 class="feature-card__title">Flerspråklig</h3>
-            <p class="feature-card__text">Vi tilbyr undervisning på norsk, arabisk og tyrkisk – kommunikasjon på ditt foretrukne språk.</p>
+            <h3 class="feature-card__title">Opplæring på flere språk</h3>
+            <p class="feature-card__text">Vi tilbyr kjøreopplæring på norsk, arabisk og tyrkisk, slik at du kan kommunisere på språket du foretrekker.</p>
           </div>
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-shield"/></svg></div>
             <h3 class="feature-card__title">Personlig oppfølging</h3>
-            <p class="feature-card__text">Vi følger deg tett gjennom hele prosessen – fra første time til du holder førerkortet i hånden.</p>
+            <p class="feature-card__text">Vi følger deg tett gjennom hele opplæringen – fra den første kjøretimen til du er klar for førerprøven.</p>
           </div>
           <div class="feature-card reveal">
             <div class="feature-card__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-credit-card"/></svg></div>
-            <h3 class="feature-card__title">Delbetaling</h3>
-            <p class="feature-card__text">Vi tilbyr fleksible betalingsløsninger som gjør det enklere å komme i gang uten å betale alt på én gang.</p>
+            <h3 class="feature-card__title">Fleksibel betaling</h3>
+            <p class="feature-card__text">Vi tilbyr fleksible betalingsløsninger som gjør det enklere å komme i gang uten å betale hele beløpet på én gang.</p>
           </div>
         </div>
       </div>

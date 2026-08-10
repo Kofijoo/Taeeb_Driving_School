@@ -271,6 +271,121 @@
   }
 
   /* ============================================================
+     PACKAGE ENQUIRY
+     Populates and submits the shared #pakkeModal form. Modal open/
+     close/focus-trap/Escape/backdrop is already handled generically
+     by initGenericModals() above (#pakkeModal carries [data-generic-
+     modal] just like the legal modals) -- this only injects the
+     clicked package's data and submits the form to its own,
+     separate Formspree endpoint.
+     ============================================================ */
+  function initPackageEnquiry() {
+    var form = $('pakkeForm');
+    if (!form) return;
+
+    var PACKAGES = {
+      superpakke:     { label: 'SUPERPAKKE',                            heading: 'Bestill SUPERPAKKE' },
+      kjoretimepakke: { label: 'Kjøretimepakke automat (10 kjøretimer)', heading: 'Bestill 10 kjøretimer' },
+      obligatorisk:   { label: 'Obligatorisk pakke',                    heading: 'Forespørsel – Obligatorisk pakke' }
+    };
+
+    var heading        = $('pakke-modal-heading');
+    var selectedLabel  = $('pakkeSelectedLabel');
+    var valgtPakkeField = $('pakkeValgtPakke');
+    var subjectField   = $('pakkeSubject');
+    var success        = $('pakkeFormSuccess');
+    var error           = $('pakkeFormError');
+    var currentPackage = null;
+
+    function applyPackage(pkg) {
+      currentPackage = pkg;
+      if (heading) heading.textContent = pkg.heading;
+      if (selectedLabel) selectedLabel.textContent = pkg.label;
+      if (valgtPakkeField) valgtPakkeField.value = pkg.label;
+      if (subjectField) subjectField.value = 'Pakkeforespørsel – ' + pkg.label;
+    }
+
+    document.querySelectorAll('[data-package]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var pkg = PACKAGES[btn.getAttribute('data-package')];
+        if (!pkg) return;
+        applyPackage(pkg);
+        // Every package click opens the modal fresh -- clear any
+        // success/error banner left over from a previous enquiry.
+        if (success) success.hidden = true;
+        if (error)   error.hidden = true;
+      });
+    });
+
+    var submitBtn  = form.querySelector('.form__submit');
+    var submitSpan = submitBtn ? submitBtn.querySelector('span') : null;
+    var sending    = false;
+
+    function validateField(field) {
+      var ok = field.validity.valid;
+      field.classList.toggle('is-invalid', !ok);
+      return ok;
+    }
+
+    form.querySelectorAll('.form__input, .form__select, .form__textarea').forEach(function (field) {
+      field.addEventListener('blur', function () {
+        if (field.hasAttribute('required')) validateField(field);
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (sending) return;
+
+      var fields   = form.querySelectorAll('[required]');
+      var allValid = true;
+      fields.forEach(function (f) { if (!validateField(f)) allValid = false; });
+      if (!allValid) return;
+
+      if (success) success.hidden = true;
+      if (error)   error.hidden = true;
+
+      sending = true;
+      if (submitBtn)  submitBtn.disabled = true;
+      if (submitSpan) submitSpan.textContent = 'Sender…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Formspree status ' + response.status);
+          form.reset();
+          form.querySelectorAll('.form__input, .form__select, .form__textarea').forEach(function (f) {
+            f.classList.remove('is-invalid');
+          });
+          // form.reset() restores the hidden package fields to their
+          // empty HTML defaults -- reapply the last-selected package so
+          // the (still-visible-if-reopened) modal never shows stale/blank
+          // package data after a successful submission.
+          if (currentPackage) applyPackage(currentPackage);
+          if (success) {
+            success.hidden = false;
+            success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        })
+        .catch(function (err) {
+          console.error('Pakkeforespørsel: sending feilet', err);
+          if (error) {
+            error.hidden = false;
+            error.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        })
+        .finally(function () {
+          sending = false;
+          if (submitBtn)  submitBtn.disabled = false;
+          if (submitSpan) submitSpan.textContent = 'Send forespørsel';
+        });
+    });
+  }
+
+  /* ============================================================
      REVIEWS CAROUSEL
      ============================================================ */
   function initCarousel() {
@@ -358,6 +473,7 @@
     initContactForm();
     initCookieBanner();
     initGenericModals();
+    initPackageEnquiry();
     initCarousel();
     initAnnouncements();
   });

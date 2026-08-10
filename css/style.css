@@ -655,6 +655,131 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .feature-card__title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
 .feature-card__text  { font-size: 14px; color: rgba(255,255,255,.58); line-height: 1.7; }
 
+.om-oss__intro {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.om-oss__block { display: flex; flex-direction: column; gap: 14px; }
+.om-oss__intro p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.72);
+  margin: 0;
+}
+
+/* ============================================================
+   PACKAGE CARDS
+   ============================================================ */
+.pricing__group--packages { padding-bottom: 28px; }
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.package-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  position: relative;
+}
+.package-card--featured {
+  border-color: var(--green);
+  box-shadow: var(--shadow-lg);
+}
+
+.package-card__badge {
+  position: absolute;
+  top: -13px;
+  left: 24px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+}
+
+.package-card__title { font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 2px; }
+.package-card__subtitle { font-size: 13px; color: var(--gray-400); margin-bottom: 16px; }
+.package-card__price { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; }
+.package-card__saving {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-dark);
+  background: rgba(34,197,94,.1);
+  border-radius: var(--radius-full);
+  padding: 3px 10px;
+  margin-top: 8px;
+}
+
+.package-card__list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+.package-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+.package-card__list .icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--green-dark); margin-top: 1px; }
+
+.package-card__notes {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: var(--gray-50);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.package-card__notes li { font-size: 12.5px; color: var(--gray-400); line-height: 1.5; }
+
+.package-card__cta { margin-top: 22px; }
+
+@media (max-width: 1023px) {
+  .package-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   PACKAGE ENQUIRY MODAL
+   ============================================================ */
+.calendar-modal__panel--form { width: min(94vw, 560px); }
+
+.package-form-wrap { max-width: 480px; margin-inline: auto; }
+.package-form__heading { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.package-form__selected { font-size: 14px; color: var(--gray-600); margin-bottom: 24px; }
+.package-form__selected strong { color: var(--navy); }
+
+.package-form { background: none; box-shadow: none; border: none; padding: 0; }
+
+/* Personvernerklæring/Skolereglement can be opened from inside the package
+   modal (privacy link); they must render above it, not behind it, since
+   both share the same .calendar-modal.is-open z-index by default. */
+#personvernModal.is-open,
+#skolereglementModal.is-open {
+  z-index: 2100;
+}
+
 /* ============================================================
    PRICING
    ============================================================ */
