@@ -421,150 +421,125 @@
           <h2 class="section__title" id="pricing-heading">Priser og pakker</h2>
         </div>
 
-        <div class="pricing__tabs" id="pricingTabs" role="tablist" aria-label="Velg klasse"></div>
-        <div class="pricing__panel" id="pricingPanel">
-          <p class="courses__status">Henter priser …</p>
+        <!--
+          STATISK PRISLISTE — administreres direkte på nettsiden, IKKE
+          via TABS API (bevisst valg, Taeeb 2026-08). Tall bekreftet av
+          Taeeb; oppdater manuelt her ved fremtidige prisendringer.
+          Kurspriser (Trafikalt grunnkurs, Førstehjelp, Mørkekjøring)
+          vises under Kursoversikt, ikke duplisert her.
+        -->
+        <div class="pricing__panel">
+
+          <div class="pricing__group">
+            <h3 class="pricing__group-title">Kjøretimer og opplæring</h3>
+            <div class="pricing__rows">
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">Kjøretime BAut<span class="pricing__row-duration">45 min</span></span>
+                  <span class="pricing__row-desc">Fra 15/10 2024 koster en kjøretime 850,-</span>
+                </div>
+                <span class="pricing__row-price">850 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">Kjøretime<span class="pricing__row-duration">60 min</span></span>
+                </div>
+                <span class="pricing__row-price">1 135 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">Trinnvurdering trinn 2</span>
+                </div>
+                <span class="pricing__row-price">850 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">Trinnvurdering trinn 3</span>
+                </div>
+                <span class="pricing__row-price">1 135 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">Sikkerhetskurs på øvingsbane</span>
+                  <span class="pricing__row-desc">Med NAF baneleie, kjøring til/fra banen er inkludert.</span>
+                </div>
+                <span class="pricing__row-price">8 210 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">Oppvarmingstime</span>
+                </div>
+                <span class="pricing__row-price">850 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">Leie av bil til førerprøve BAut</span>
+                </div>
+                <span class="pricing__row-price">3 100 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">4.1.1 Bilkjøringens risiko<span class="pricing__row-duration">90 min</span></span>
+                </div>
+                <span class="pricing__row-price">1 000 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">4.1.2 Kjøring i landeveismiljø<span class="pricing__row-duration">225 min</span></span>
+                </div>
+                <span class="pricing__row-price">4 600 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">4.1.3 Planlegging og kjøring i variert miljø<span class="pricing__row-duration">180 min</span></span>
+                </div>
+                <span class="pricing__row-price">3 600 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info">
+                  <span class="pricing__row-name">4.1.4 Refleksjon og oppsummering<span class="pricing__row-duration">90 min</span></span>
+                </div>
+                <span class="pricing__row-price">1 000 kr</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing__group">
+            <h3 class="pricing__group-title">Annet</h3>
+            <div class="pricing__rows">
+              <div class="pricing__row">
+                <div class="pricing__row-info"><span class="pricing__row-name">Baneleie</span></div>
+                <span class="pricing__row-price">1 500 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info"><span class="pricing__row-name">Gebyr</span></div>
+                <span class="pricing__row-price">1 070 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info"><span class="pricing__row-name">Bilde</span></div>
+                <span class="pricing__row-price">75 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info"><span class="pricing__row-name">Teoriprøve</span></div>
+                <span class="pricing__row-price">600 kr</span>
+              </div>
+              <div class="pricing__row">
+                <div class="pricing__row-info"><span class="pricing__row-name">Fakturagebyr</span></div>
+                <span class="pricing__row-price">75 kr</span>
+              </div>
+            </div>
+          </div>
+
+          <!--
+            PAKKER — venter på fullstendig informasjon fra Taeeb.
+            Bekreftet så langt: "Pakkeløsning 1: 10 × Kjøretime" (pris
+            og øvrig innhold ukjent). Legg til en ny .pricing__group
+            her, i samme mønster som gruppene over, når innhold og
+            pris er bekreftet. Ikke publiser før da.
+          -->
+
         </div>
       </div>
-
-      <!--
-        LIVE PRISER — officeId 549 (Let's Learn Trafikkskole)
-        Henter https://api.tabs.no/api/v2/prices (TABS er kilden til
-        sannhet for navn/priser — vi bygger kun presentasjonen selv,
-        i stedet for å bruke TABS' egen accordion-markup direkte).
-        officeId/api.js er allerede lastet i bookingkalender-modalen
-        lenger oppe, trengs ikke på nytt her.
-
-        Standard valgt klasse er BAut (Personbil automat). Kurs-
-        klassen (TG) sine produkter er de samme kursene som allerede
-        vises med fullt kort/bilde/dato under Kursoversikt, så her
-        vises de kun som enkle pris-rader — ikke dupliserte kort.
-      -->
-      <script>
-      (function () {
-        var tabsEl = document.getElementById('pricingTabs');
-        var panelEl = document.getElementById('pricingPanel');
-        var DEFAULT_CLASS = 'BAut';
-
-        function formatPrice(n) {
-          return typeof n === 'number' ? n.toLocaleString('nb-NO') + ' kr' : '';
-        }
-
-        function showStatus(message) {
-          panelEl.innerHTML = '';
-          var p = document.createElement('p');
-          p.className = 'courses__status';
-          p.textContent = message;
-          panelEl.appendChild(p);
-        }
-
-        function renderPanel(drivingClass) {
-          panelEl.innerHTML = '';
-
-          if (drivingClass.short_name === 'TG') {
-            var note = document.createElement('p');
-            note.className = 'pricing__tg-note';
-            note.innerHTML = 'Kurspriser for Trafikalt grunnkurs, Førstehjelp og Mørkekjøring vises med oppdaterte datoer og direkte påmelding under <a href="#kursoversikt">Kursoversikt</a>.';
-            panelEl.appendChild(note);
-            return;
-          }
-
-          var types = (drivingClass.productTypes || []).filter(function (t) { return (t.products || []).length; });
-          if (!types.length) {
-            showStatus('Ingen priser tilgjengelig for ' + drivingClass.short_name + ' akkurat nå.');
-            return;
-          }
-          types.forEach(function (type) {
-            var group = document.createElement('div');
-            group.className = 'pricing__group';
-
-            var heading = document.createElement('h3');
-            heading.className = 'pricing__group-title';
-            heading.textContent = type.name;
-            group.appendChild(heading);
-
-            var list = document.createElement('div');
-            list.className = 'pricing__rows';
-
-            var products = (type.products || []).slice().sort(function (a, b) {
-              var aw = a.web_sort_order == null ? 999 : a.web_sort_order;
-              var bw = b.web_sort_order == null ? 999 : b.web_sort_order;
-              return aw - bw;
-            });
-
-            products.forEach(function (product) {
-              var row = document.createElement('div');
-              row.className = 'pricing__row';
-
-              var info = document.createElement('div');
-              info.className = 'pricing__row-info';
-
-              var name = document.createElement('span');
-              name.className = 'pricing__row-name';
-              name.textContent = product.name + (product.duration ? ' (' + product.duration + ' min)' : '');
-              info.appendChild(name);
-
-              if (product.description) {
-                var desc = document.createElement('span');
-                desc.className = 'pricing__row-desc';
-                desc.textContent = product.description;
-                info.appendChild(desc);
-              }
-
-              var price = document.createElement('span');
-              price.className = 'pricing__row-price';
-              price.textContent = formatPrice(product.price);
-
-              row.appendChild(info);
-              row.appendChild(price);
-              list.appendChild(row);
-            });
-
-            group.appendChild(list);
-            panelEl.appendChild(group);
-          });
-        }
-
-        fetch('https://api.tabs.no/api/v2/prices?officeId=549')
-          .then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
-          .then(function (data) {
-            var classes = data.drivingClasses || [];
-            if (!classes.length) {
-              tabsEl.style.display = 'none';
-              showStatus('Ingen priser tilgjengelig akkurat nå. Ring oss på +47 908 05 256 for informasjon.');
-              return;
-            }
-
-            tabsEl.innerHTML = '';
-            classes.forEach(function (dc, i) {
-              var btn = document.createElement('button');
-              btn.type = 'button';
-              btn.className = 'pricing__tab';
-              btn.textContent = dc.short_name;
-              btn.setAttribute('role', 'tab');
-              var isDefault = dc.short_name === DEFAULT_CLASS ? true : (i === 0 && !classes.some(function (c) { return c.short_name === DEFAULT_CLASS; }));
-              btn.setAttribute('aria-selected', isDefault ? 'true' : 'false');
-              if (isDefault) btn.classList.add('is-active');
-              btn.addEventListener('click', function () {
-                tabsEl.querySelectorAll('.pricing__tab').forEach(function (t) {
-                  t.classList.remove('is-active');
-                  t.setAttribute('aria-selected', 'false');
-                });
-                btn.classList.add('is-active');
-                btn.setAttribute('aria-selected', 'true');
-                renderPanel(dc);
-              });
-              tabsEl.appendChild(btn);
-              if (isDefault) renderPanel(dc);
-            });
-          })
-          .catch(function (err) {
-            console.error('Kunne ikke hente priser fra TABS', err);
-            tabsEl.style.display = 'none';
-            showStatus('Prislisten kunne ikke lastes akkurat nå. Ring oss på +47 908 05 256 for informasjon.');
-          });
-      })();
-      </script>
     </section>
 
     <!-- WHY US -->
