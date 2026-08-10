@@ -209,7 +209,7 @@
           <li><a href="https://tabs.no/start" target="_blank" rel="noopener noreferrer" class="main-nav__link">TABS Elev</a></li>
           <li><a href="#" class="main-nav__link" data-modal-target="skolereglementModal">Skolereglement</a></li>
           <li><a href="#lenker"         class="main-nav__link">Nyttige lenker</a></li>
-          <li><a href="#" class="main-nav__link">Gavekort</a></li>
+          <li><a href="#gavekort" class="main-nav__link">Gavekort</a></li>
           <li><a href="#om-oss"         class="main-nav__link">Om oss</a></li>
           <li><a href="#kontakt"        class="main-nav__link">Kontakt</a></li>
         </ul>
@@ -456,6 +456,66 @@
 
       trigger.addEventListener('click', openModal);
       modal.querySelectorAll('[data-calendar-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+      });
+      document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
+    </script>
+
+    <!--
+      GAVEKORT — modal, not part of homepage flow. Same hidden-via-
+      opacity/pointer-events pattern as Bookingkalender above (NOT
+      display:none) so the TABS gift card widget always initializes
+      against real dimensions, never a zero-size hidden container.
+      Opened only via the "Gavekort" nav link. officeId/api.js is
+      already loaded once above (Bookingkalender block) -- not
+      reloaded here; api.js scans the whole page for known widget
+      root divs, including this one, regardless of visibility.
+    -->
+    <div class="calendar-modal" id="gavekort" aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-gavekort-close></div>
+      <div class="calendar-modal__panel" role="dialog" aria-modal="true" aria-labelledby="gavekort-heading">
+        <button type="button" class="calendar-modal__close" aria-label="Lukk gavekort" data-gavekort-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
+        <div class="section__header">
+          <h2 class="section__title" id="gavekort-heading">Gavekort</h2>
+          <p class="section__subtitle">Let's Learn Trafikkskole</p>
+        </div>
+
+        <!-- TABS API WIDGET — officeId 549 (Let's Learn Trafikkskole) -->
+        <div class="booking-widget">
+          <div id="api-giftcard"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    (function () {
+      var modal = document.getElementById('gavekort');
+      var trigger = document.querySelector('a[href="#gavekort"]');
+      if (!modal || !trigger) return;
+
+      function openModal(ev) {
+        if (ev) ev.preventDefault();
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('calendar-modal-open');
+        var closeBtn = modal.querySelector('.calendar-modal__close');
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('calendar-modal-open');
+        trigger.focus();
+      }
+
+      trigger.addEventListener('click', openModal);
+      modal.querySelectorAll('[data-gavekort-close]').forEach(function (el) {
         el.addEventListener('click', closeModal);
       });
       document.addEventListener('keydown', function (ev) {
