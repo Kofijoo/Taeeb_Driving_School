@@ -869,7 +869,8 @@
             </div>
           </div>
 
-          <form class="contact__form" id="contactForm" novalidate>
+          <form class="contact__form" id="contactForm" novalidate action="https://formspree.io/f/xwlelznz" method="POST">
+            <input type="text" name="_gotcha" class="form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form__row">
               <div class="form__group">
                 <label class="form__label" for="firstName">Fornavn</label>
@@ -918,6 +919,13 @@
             <div class="form__success" id="formSuccess" hidden role="status">
               <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
               <strong>Takk! Vi tar kontakt med deg innen én virkedag.</strong>
+            </div>
+            <div class="form__error" id="formError" hidden role="alert">
+              <div class="form__error-head">
+                <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+                <strong>Beklager, meldingen kunne ikke sendes.</strong>
+              </div>
+              <span>Prøv igjen eller kontakt oss direkte på telefon eller e-post.</span>
             </div>
           </form>
 

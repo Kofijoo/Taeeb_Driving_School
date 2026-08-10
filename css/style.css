@@ -920,6 +920,30 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   margin-top: 12px;
 }
 
+.form__error {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(239,68,68,.08);
+  border: 1px solid rgba(239,68,68,.25);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  color: #B91C1C;
+  font-size: 15px;
+  margin-top: 12px;
+}
+.form__error-head { display: flex; align-items: center; gap: 12px; }
+.form__error span { font-size: 14px; font-weight: 400; margin-left: 32px; }
+
+.form__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* ============================================================
    SITE FOOTER
    ============================================================ */

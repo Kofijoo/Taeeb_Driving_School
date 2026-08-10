@@ -128,7 +128,12 @@
   function initContactForm() {
     var form    = $('contactForm');
     var success = $('formSuccess');
+    var error   = $('formError');
     if (!form) return;
+
+    var submitBtn  = form.querySelector('.form__submit');
+    var submitSpan = submitBtn ? submitBtn.querySelector('span') : null;
+    var sending    = false;
 
     function validateField(field) {
       var ok = field.validity.valid;
@@ -144,29 +149,48 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (sending) return;
+
       var fields   = form.querySelectorAll('[required]');
       var allValid = true;
       fields.forEach(function (f) { if (!validateField(f)) allValid = false; });
       if (!allValid) return;
 
-      var submitBtn  = form.querySelector('.form__submit');
-      var submitSpan = submitBtn ? submitBtn.querySelector('span') : null;
+      if (success) success.hidden = true;
+      if (error)   error.hidden = true;
 
+      sending = true;
       if (submitBtn)  submitBtn.disabled = true;
       if (submitSpan) submitSpan.textContent = 'Sender…';
 
-      setTimeout(function () {
-        form.reset();
-        form.querySelectorAll('.form__input, .form__select, .form__textarea').forEach(function (f) {
-          f.classList.remove('is-invalid');
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Formspree status ' + response.status);
+          form.reset();
+          form.querySelectorAll('.form__input, .form__select, .form__textarea').forEach(function (f) {
+            f.classList.remove('is-invalid');
+          });
+          if (success) {
+            success.hidden = false;
+            success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        })
+        .catch(function (err) {
+          console.error('Kontaktskjema: sending feilet', err);
+          if (error) {
+            error.hidden = false;
+            error.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        })
+        .finally(function () {
+          sending = false;
+          if (submitBtn)  submitBtn.disabled = false;
+          if (submitSpan) submitSpan.textContent = 'Send melding';
         });
-        if (success) {
-          success.hidden = false;
-          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-        if (submitBtn)  submitBtn.disabled = false;
-        if (submitSpan) submitSpan.textContent = 'Send melding';
-      }, 900);
     });
   }
 
