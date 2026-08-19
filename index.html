@@ -204,13 +204,13 @@
         <ul class="main-nav__list" role="list">
           <li><a href="#hjem"           class="main-nav__link">Hjem</a></li>
           <li><a href="#kursoversikt"   class="main-nav__link">Kursoversikt</a></li>
-          <li><a href="#priser"         class="main-nav__link">Priser og pakker</a></li>
+          <li><a href="#" class="main-nav__link" data-modal-target="priserModal">Priser og pakker</a></li>
           <li><a href="#bookingkalender" class="main-nav__link">Bookingkalender</a></li>
           <li><a href="https://tabs.no/start" target="_blank" rel="noopener noreferrer" class="main-nav__link">TABS Elev</a></li>
           <li><a href="#" class="main-nav__link" data-modal-target="skolereglementModal">Skolereglement</a></li>
-          <li><a href="#lenker"         class="main-nav__link">Nyttige lenker</a></li>
+          <li><a href="#" class="main-nav__link" data-modal-target="lenkerModal">Nyttige lenker</a></li>
           <li><a href="#gavekort" class="main-nav__link">Gavekort</a></li>
-          <li><a href="#om-oss"         class="main-nav__link">Om oss</a></li>
+          <li><a href="#" class="main-nav__link" data-modal-target="omOssModal">Om oss</a></li>
           <li><a href="#kontakt"        class="main-nav__link">Kontakt</a></li>
         </ul>
       </nav>
@@ -544,7 +544,7 @@
           <p class="legal-content__updated">Sist oppdatert: august 2026</p>
 
           <h3>1. Behandlingsansvarlig</h3>
-          <p>Let's Learn Trafikkskole AS er behandlingsansvarlig for personopplysninger som samles inn via denne nettsiden. Kontakt: <a href="mailto:taeeb_m@hotmail.com">taeeb_m@hotmail.com</a>.</p>
+          <p>Let's Learn Trafikkskole AS (org.nr. 915 077 161) er behandlingsansvarlig for personopplysninger som samles inn via denne nettsiden. Kontakt: <a href="mailto:taeeb_m@hotmail.com">taeeb_m@hotmail.com</a>.</p>
 
           <h3>2. Hvilke opplysninger vi samler inn</h3>
           <p>Når du fyller ut kontaktskjemaet, samler vi inn: fornavn, etternavn, telefonnummer, e-postadresse, hva du er interessert i, og eventuell melding du skriver. Når du sender en pakkeforespørsel, samler vi inn: fornavn, etternavn, mobilnummer, e-postadresse, hvilken pakke du har valgt, samt eventuelt ønsket område/møtested, ønsket oppstart og tilleggsinfo du oppgir.</p>
@@ -592,29 +592,105 @@
           <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
         </button>
         <div class="legal-content">
-          <h2 id="skolereglement-modal-heading">Skolereglement</h2>
+          <h2 id="skolereglement-modal-heading">Skolereglement – Let's Learn Trafikkskole AS</h2>
+          <p class="legal-content__updated">Sist oppdatert: 10. august 2026</p>
 
-          <h3>Bestilling</h3>
-          <p>Elever kan bestille kjøretimer via nettsiden eller ved å kontakte Let's Learn Trafikkskole direkte.</p>
+          <p>Velkommen som elev hos Let's Learn Trafikkskole AS.</p>
+          <p>Vi ønsker å tilby trygg, effektiv og faglig god trafikkopplæring. Dette skolereglementet gjelder for alle elever som bestiller eller gjennomfører kjøretimer, kurs eller annen opplæring hos oss.</p>
+          <p>Ved bestilling av undervisning forutsettes det at eleven har gjort seg kjent med skolereglementet.</p>
 
-          <h3>Avbestilling</h3>
-          <p>Avbestilling kan gjøres via TABS Elev eller ved å kontakte Let's Learn Trafikkskole direkte.</p>
+          <h3>1. Bestilling av kjøretimer og kurs</h3>
+          <p>Bestilling av kjøretimer, kurs og annen opplæring er bindende, med de begrensninger som følger av gjeldende lovgivning og eventuell angrerett.</p>
+          <p>Eleven er selv ansvarlig for å kontrollere dato, tidspunkt og oppmøtested for bestilte timer og kurs.</p>
+          <p>Eleven er også ansvarlig for at Let's Learn Trafikkskole AS har korrekte kontaktopplysninger.</p>
 
-          <h3>Sen avbestilling</h3>
-          <p>Ved sen avbestilling bes eleven kontakte Let's Learn Trafikkskole direkte.</p>
+          <h3>2. Avbestilling av vanlige kjøretimer</h3>
+          <p>Avbestilling eller endring av en vanlig kjøretime må skje senest kl. 12.00 siste virkedag før avtalt kjøretime.</p>
+          <p>Dette innebærer blant annet at en kjøretime på mandag må avbestilles senest fredag kl. 12.00.</p>
+          <p>Ved for sen avbestilling eller manglende oppmøte kan kjøretimen belastes i sin helhet.</p>
+          <p>Avbestilling skal skje gjennom skolens godkjente kontakt- eller bookingsystem.</p>
+          <p>Ved dokumentert sykdom eller andre særlige forhold kan Let's Learn Trafikkskole AS etter en konkret vurdering gjøre unntak fra den ordinære avbestillingsfristen.</p>
 
-          <h3>Uteblivelse</h3>
-          <p>Ved uteblivelse belastes eleven 50 % av prisen for den bestilte timen.</p>
+          <h3>3. Obligatorisk opplæring og kurs</h3>
+          <p>Avbestilling eller endring av obligatorisk opplæring skal normalt skje senest 3 virkedager før oppstart.</p>
+          <p>Dette gjelder blant annet obligatoriske kurs, sikkerhetskurs og annen opplæring hvor trafikkskolen har reservert lærer, kjøretøy, bane eller andre ressurser.</p>
+          <p>Ved for sen avbestilling eller manglende oppmøte kan eleven bli belastet for hele eller deler av den reserverte opplæringen og eventuelle kostnader som trafikkskolen ikke får refundert.</p>
+          <p>Dersom en bestemt aktivitet har en annen avbestillingsfrist, skal eleven informeres om dette ved bestilling.</p>
 
-          <!--
-            TODO — resterende punkter venter på bekreftet informasjon
-            fra Taeeb. Legg til som nye <h3>/<p> i samme mønster som
-            over når innholdet er bekreftet. IKKE publiser før da:
-            Betaling, Kurs, Oppmøte, Elevens ansvar,
-            Trafikkskolens ansvar, Førerprøve.
-          -->
+          <h3>4. SMS, e-post og påminnelser</h3>
+          <p>Eventuelle påminnelser på SMS, e-post eller gjennom bookingsystemet er en ekstra service fra trafikkskolen.</p>
+          <p>Eleven er selv ansvarlig for å holde oversikt over sine bestilte kjøretimer, kurs og andre avtaler.</p>
+          <p>Manglende eller forsinket påminnelse fritar derfor ikke eleven fra skolens regler om oppmøte og avbestilling.</p>
 
-          <p>Har du spørsmål om bestilling, avbestilling eller oppmøte, kontakt Let's Learn Trafikkskole.</p>
+          <h3>5. Oppmøte og forsinkelse</h3>
+          <p>Eleven skal møte presis til avtalt tid og sted.</p>
+          <p>Dersom eleven kommer for sent, kan undervisningen bli tilsvarende kortere uten reduksjon i pris.</p>
+          <p>Eleven er selv ansvarlig for å ha med gyldig legitimasjon og annen nødvendig dokumentasjon når dette kreves.</p>
+          <p>Dersom Let's Learn Trafikkskole AS må avlyse en kjøretime eller et kurs, vil eleven bli varslet så snart som mulig. Eleven belastes ikke for undervisning som trafikkskolen selv avlyser.</p>
+
+          <h3>6. Betaling</h3>
+          <p>Eleven er ansvarlig for betaling av bestilte kjøretimer, kurs og øvrige tjenester.</p>
+          <p>Betaling skjer etter Let's Learn Trafikkskole AS sine til enhver tid gjeldende priser og betalingsvilkår.</p>
+          <p>Ved utestående betaling kan trafikkskolen kreve at beløpet gjøres opp før nye kjøretimer, kurs eller andre tjenester gjennomføres.</p>
+          <p>Offentlige gebyrer, baneleie eller andre kostnader til tredjepart kan komme i tillegg dersom dette fremgår av prislisten eller informasjonen som gis ved bestilling.</p>
+
+          <h3>7. Kjørepakker og forhåndsbetaling</h3>
+          <p>Ved kjøp av kjørepakker gjelder innholdet, prisene og vilkårene som ble opplyst ved kjøpet.</p>
+          <p>En kjørepakke innebærer ikke garanti for at eleven blir klar til praktisk førerprøve innenfor antallet timer eller aktivitetene som inngår i pakken.</p>
+          <p>Behovet for opplæring er individuelt og avhenger blant annet av elevens ferdigheter, progresjon og mengdetrening.</p>
+          <p>Dersom eleven trenger ytterligere opplæring utover det som inngår i pakken, kommer denne opplæringen i tillegg etter trafikkskolens gjeldende priser.</p>
+
+          <h3>8. Opplæring og progresjon</h3>
+          <p>Opplæringen hos Let's Learn Trafikkskole AS gjennomføres i samsvar med gjeldende regelverk og læreplan for den aktuelle førerkortklassen.</p>
+          <p>Elever utvikler seg i ulikt tempo. Antall kjøretimer som er nødvendig vil derfor variere fra elev til elev.</p>
+          <p>Trafikklæreren vurderer elevens kompetanse og progresjon underveis i opplæringen.</p>
+          <p>Obligatorisk opplæring gjennomføres i samsvar med kravene som gjelder for den aktuelle førerkortklassen.</p>
+
+          <h3>9. Sikkerhet under opplæringen</h3>
+          <p>Sikkerheten kommer alltid først.</p>
+          <p>Eleven skal følge trafikklærerens instrukser under opplæringen.</p>
+          <p>Eleven skal ikke møte til kjøretime påvirket av alkohol, rusmidler eller andre forhold som gjør kjøringen uforsvarlig.</p>
+          <p>Eleven skal informere trafikklæreren dersom sykdom, medisiner, søvnmangel eller andre forhold kan påvirke evnen til å gjennomføre opplæringen på en trafikksikker måte.</p>
+          <p>Trafikklæreren kan nekte å starte eller avbryte undervisningen dersom det vurderes som uforsvarlig å gjennomføre den.</p>
+
+          <h3>10. Praktisk førerprøve</h3>
+          <p>Praktisk førerprøve bestilles etter avtale mellom eleven og trafikkskolen, eller av eleven selv gjennom Statens vegvesens løsninger.</p>
+          <p>Eleven er ansvarlig for å oppfylle gjeldende krav for å kunne gjennomføre førerprøven.</p>
+          <p>Dersom Let's Learn Trafikkskole AS stiller kjøretøy og/eller trafikklærer til disposisjon i forbindelse med førerprøven, gjelder skolens priser og avbestillingsvilkår for denne tjenesten.</p>
+          <p>Avbestilling av skolens bil/lærer i forbindelse med førerprøven må skje senest 3 virkedager før avtalt prøve. Ved senere avbestilling kan skolens kostnader knyttet til den reserverte tiden og kjøretøyet bli belastet eleven.</p>
+          <p>Statens vegvesen har egne regler og frister for avbestilling av selve førerprøven. Disse gjelder uavhengig av trafikkskolens egne vilkår.</p>
+
+          <h3>11. Registrering og dokumentasjon av opplæringen</h3>
+          <p>Let's Learn Trafikkskole AS registrerer og dokumenterer elevens opplæring i samsvar med gjeldende regelverk.</p>
+          <p>Trafikkskolen fører elektronisk elevfortegnelse og elektronisk opplæringskort. Gjennomført undervisning og obligatorisk opplæring dokumenteres i samsvar med kravene som gjelder for trafikkskoler.</p>
+
+          <h3>12. Personvern</h3>
+          <p>Let's Learn Trafikkskole AS behandler personopplysninger som er nødvendige for å administrere, gjennomføre og dokumentere elevens trafikkopplæring.</p>
+          <p>Personopplysninger behandles i samsvar med gjeldende personvernregelverk.</p>
+
+          <h3>13. Angrerett ved bestilling på nett eller telefon</h3>
+          <p>Ved kjøp av tjenester på nett eller telefon gjelder angrerettloven når vilkårene for angrerett er oppfylt.</p>
+          <p>Dersom eleven ber om at opplæringen skal starte før en eventuell angrefrist er utløpt, gjelder angrerettlovens bestemmelser for tjenester som påbegynnes i angreperioden.</p>
+          <p>Skolereglementet begrenser ikke elevens lovbestemte rettigheter.</p>
+
+          <h3>14. Endringer og uforutsette hendelser</h3>
+          <p>Let's Learn Trafikkskole AS kan være nødt til å flytte eller avlyse undervisning på grunn av sykdom, tekniske problemer, vær- og føreforhold eller andre forhold som gjør det vanskelig eller uforsvarlig å gjennomføre undervisningen.</p>
+          <p>Eleven vil bli varslet så snart som praktisk mulig.</p>
+          <p>Dersom trafikkskolen avlyser undervisningen, belastes ikke eleven for den avlyste undervisningen.</p>
+
+          <h3>15. Klager og henvendelser</h3>
+          <p>Dersom du har spørsmål eller mener at en tjeneste ikke er levert som avtalt, ber vi deg kontakte oss så snart som mulig slik at vi kan forsøke å finne en løsning.</p>
+          <p>
+            Let's Learn Trafikkskole AS<br>
+            Telefon: <a href="tel:+4790805256">908 05 256</a><br>
+            E-post: <a href="mailto:taeeb_m@hotmail.com">taeeb_m@hotmail.com</a><br>
+            Org.nr.: 915 077 161
+          </p>
+
+          <h3>16. Endringer i skolereglementet</h3>
+          <p>Let's Learn Trafikkskole AS kan oppdatere skolereglementet ved endringer i regelverk, priser eller skolens rutiner.</p>
+          <p>Gjeldende versjon av skolereglementet vil være tilgjengelig på trafikkskolens nettside.</p>
+          <p>Sist oppdatert: 10. august 2026</p>
         </div>
       </div>
     </div>
@@ -704,10 +780,21 @@
     </div>
 
     <!-- PRICING -->
-    <section class="section pricing" id="priser" aria-labelledby="pricing-heading">
-      <div class="container">
+    <!--
+      PRISER OG PAKKER — modal, opened from the "Priser og pakker" nav
+      link via [data-modal-target]. Reuses the generic modal handler
+      (initGenericModals in js/app.js) like Personvernerklæring/
+      Skolereglement/Pakke above. Package cards inside still open
+      pakkeModal on top -- see the z-index stack comment in style.css.
+    -->
+    <div class="calendar-modal" id="priserModal" data-generic-modal aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-modal-close></div>
+      <div class="calendar-modal__panel" role="dialog" aria-modal="true" aria-labelledby="priser-modal-heading">
+        <button type="button" class="calendar-modal__close" aria-label="Lukk priser og pakker" data-modal-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
         <div class="section__header">
-          <h2 class="section__title" id="pricing-heading">Priser og pakker</h2>
+          <h2 class="section__title" id="priser-modal-heading">Priser og pakker</h2>
         </div>
 
         <!--
@@ -879,13 +966,21 @@
 
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- WHY US -->
-    <section class="section why-us" id="om-oss" aria-labelledby="why-heading">
-      <div class="container">
+    <!--
+      OM OSS — modal, opened from the "Om oss" nav link. Uses the dark
+      panel variant so the existing light-text-on-navy design keeps
+      working unchanged.
+    -->
+    <div class="calendar-modal" id="omOssModal" data-generic-modal aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-modal-close></div>
+      <div class="calendar-modal__panel calendar-modal__panel--dark" role="dialog" aria-modal="true" aria-labelledby="omoss-modal-heading">
+        <button type="button" class="calendar-modal__close calendar-modal__close--dark" aria-label="Lukk om oss" data-modal-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
         <div class="section__header section__header--light">
-          <h2 class="section__title section__title--light" id="why-heading">Om oss</h2>
+          <h2 class="section__title section__title--light" id="omoss-modal-heading">Om oss</h2>
         </div>
 
         <div class="om-oss__intro">
@@ -938,7 +1033,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- TABS BOOKING -->
     <section class="section tabs-section" aria-labelledby="tabs-heading">
@@ -1049,11 +1144,17 @@
       </div>
     </section>
 
-    <!-- NYTTIGE LENKER -->
-    <section class="section links-section" id="lenker" aria-labelledby="links-heading">
-      <div class="container">
+    <!--
+      NYTTIGE LENKER — modal, opened from the "Nyttige lenker" nav link.
+    -->
+    <div class="calendar-modal" id="lenkerModal" data-generic-modal aria-hidden="true">
+      <div class="calendar-modal__backdrop" data-modal-close></div>
+      <div class="calendar-modal__panel" role="dialog" aria-modal="true" aria-labelledby="lenker-modal-heading">
+        <button type="button" class="calendar-modal__close" aria-label="Lukk nyttige lenker" data-modal-close>
+          <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
         <div class="section__header">
-          <h2 class="section__title" id="links-heading">Nyttige lenker</h2>
+          <h2 class="section__title" id="lenker-modal-heading">Nyttige lenker</h2>
         </div>
         <div class="links-section__grid">
 
@@ -1136,7 +1237,7 @@
 
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- CONTACT -->
     <section class="section contact" id="kontakt" aria-labelledby="contact-heading">
@@ -1274,21 +1375,21 @@
 
         <div class="site-footer__brand">
           <p class="site-footer__col-heading">Let's Learn Trafikkskole</p>
-          <a href="#hjem" aria-label="Let's Learn Trafikkskole – tilbake til toppen">
-            <img src="images/lets_learn_logo_1.png" alt="Let's Learn Trafikkskole" class="site-footer__logo-img">
+          <a href="#hjem" class="site-footer__icon-box" aria-label="Let's Learn Trafikkskole – tilbake til toppen">
+            <img src="images/lets_learn_logo_footer.png" alt="Let's Learn Trafikkskole" class="site-footer__logo-img">
           </a>
         </div>
 
         <div class="site-footer__brand">
           <p class="site-footer__col-heading">Instagram</p>
-          <a href="https://www.instagram.com/lets_learn_trafikkskole_as/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/lets_learn_trafikkskole_as/?hl=en" target="_blank" rel="noopener noreferrer" class="site-footer__icon-box" aria-label="Instagram">
             <svg class="icon site-footer__social-icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
           </a>
         </div>
 
         <div class="site-footer__brand">
           <p class="site-footer__col-heading">Facebook</p>
-          <a href="https://www.facebook.com/LetsLearntrafikkskole" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/LetsLearntrafikkskole" target="_blank" rel="noopener noreferrer" class="site-footer__icon-box" aria-label="Facebook">
             <svg class="icon site-footer__social-icon" aria-hidden="true"><use href="#icon-facebook"/></svg>
           </a>
         </div>

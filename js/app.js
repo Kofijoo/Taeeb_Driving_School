@@ -205,7 +205,11 @@
     var modals = document.querySelectorAll('.calendar-modal[data-generic-modal]');
     if (!modals.length) return;
 
-    var lastTrigger = null;
+    // Per-modal trigger memory (not a single shared variable) -- required
+    // for nested modals (e.g. Priser -> Pakke -> Personvernerklæring) so
+    // closing an inner modal always restores focus to what opened THAT
+    // modal specifically, even while outer modals are still open.
+    var triggerByModal = new WeakMap();
 
     function focusableIn(modal) {
       return Array.prototype.slice.call(
@@ -214,7 +218,7 @@
     }
 
     function openModal(modal, trigger) {
-      lastTrigger = trigger || document.activeElement;
+      triggerByModal.set(modal, trigger || document.activeElement);
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('calendar-modal-open');
@@ -227,7 +231,8 @@
       modal.setAttribute('aria-hidden', 'true');
       var anyOtherOpen = document.querySelector('.calendar-modal.is-open');
       if (!anyOtherOpen) document.body.classList.remove('calendar-modal-open');
-      if (lastTrigger) lastTrigger.focus();
+      var trigger = triggerByModal.get(modal);
+      if (trigger) trigger.focus();
     }
 
     document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {

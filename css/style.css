@@ -773,9 +773,18 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 .package-form { background: none; box-shadow: none; border: none; padding: 0; }
 
-/* Personvernerklæring/Skolereglement can be opened from inside the package
-   modal (privacy link); they must render above it, not behind it, since
-   both share the same .calendar-modal.is-open z-index by default. */
+/* Nested-modal z-index stack. Priser/Om oss/Nyttige lenker are opened
+   directly from the nav (base 2000, default). The package enquiry modal
+   opens from inside Priser, so it must render above it. Personvernerklæring/
+   Skolereglement can in turn be opened from inside the package modal (or
+   directly from elsewhere), so they always render on top of everything.
+   DOM order (personvern/skolereglement, then pakke, then priser/om-oss/
+   lenker) is what makes initGenericModals()'s "first .is-open match in
+   document order = topmost modal" logic correctly resolve the deepest-open
+   modal at every nesting depth -- see js/app.js. */
+#pakkeModal.is-open {
+  z-index: 2050;
+}
 #personvernModal.is-open,
 #skolereglementModal.is-open {
   z-index: 2100;
@@ -1075,14 +1084,22 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   color: var(--white);
 }
 
-.site-footer__logo-img { height: 104px; width: auto; }
-.site-footer__social-icon {
-  width: 104px;
-  height: 104px;
-  color: rgba(255,255,255,.85);
-  transition: color var(--transition), transform var(--transition);
+.site-footer__icon-box {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition);
 }
-.site-footer__social-icon:hover { color: var(--white); transform: translateY(-2px); }
+.site-footer__icon-box:hover { transform: translateY(-2px); }
+.site-footer__logo-img { height: 100%; width: auto; }
+.site-footer__social-icon {
+  height: 100%;
+  width: 92px;
+  color: rgba(255,255,255,.85);
+  transition: color var(--transition);
+}
+.site-footer__icon-box:hover .site-footer__social-icon { color: var(--white); }
 
 .site-footer__bottom {
   border-top: 1px solid rgba(255,255,255,.08);
@@ -1340,6 +1357,30 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 }
 .calendar-modal__close:hover { background: var(--gray-200); color: var(--navy); }
 body.calendar-modal-open { overflow: hidden; }
+
+/* Dark variant for content modals that carry their own dark-background
+   section styling (currently only Om oss) -- keeps its existing
+   light-text-on-navy design working unchanged inside the modal panel,
+   instead of forcing it onto the default white panel. */
+.calendar-modal__panel--dark {
+  background: var(--navy-dark);
+  position: relative;
+  overflow: hidden;
+}
+.calendar-modal__panel--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(34,197,94,.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(59,130,246,.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.calendar-modal__panel--dark > * { position: relative; z-index: 1; }
+.calendar-modal__close--dark {
+  background: rgba(255,255,255,.1);
+  color: var(--white);
+}
+.calendar-modal__close--dark:hover { background: rgba(255,255,255,.18); color: var(--white); }
 
 .legal-content {
   max-width: 680px;
